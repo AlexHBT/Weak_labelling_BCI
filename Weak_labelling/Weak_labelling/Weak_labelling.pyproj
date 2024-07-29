@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>Weak_labelling</Name>
     <RootNamespace>Weak_labelling</RootNamespace>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,12 +22,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="bag_classes\bag.py" />
+    <Compile Include="bag_classes\Instruction.py" />
+    <Compile Include="bag_classes\__init__.py" />
     <Compile Include="classifiers\__init__.py" />
     <Compile Include="classifiers\SVM.py" />
+    <Compile Include="comparitors\Mean_bag_comparitor.py" />
     <Compile Include="comparitors\__init__.py" />
-    <Compile Include="embeddings\CSP.py" />
-    <Compile Include="embeddings\SSFFT.py" />
-    <Compile Include="embeddings\__init__.py" />
+    <Compile Include="embedding_models\Flatten_data.py" />
+    <Compile Include="embedding_models\CSP.py" />
+    <Compile Include="embedding_models\SSFFT.py" />
+    <Compile Include="embedding_models\__init__.py" />
+    <Compile Include="Filters\Butterworth.py" />
+    <Compile Include="Filters\__init__.py" />
     <Compile Include="Offline_test.py" />
     <Compile Include="menu.py" />
     <Compile Include="data_loaders\CSV_loader.py" />
@@ -35,9 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data_loaders\" />
-    <Folder Include="embeddings\" />
     <Folder Include="classifiers\" />
     <Folder Include="comparitors\" />
+    <Folder Include="embedding_models\" />
+    <Folder Include="Filters\" />
+    <Folder Include="bag_classes\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

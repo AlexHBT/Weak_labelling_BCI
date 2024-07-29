@@ -104,15 +104,11 @@ class CSV_loader():
         while(pointer+epoch_len < data.shape[0]):
             temp_list.append(data[pointer:pointer+epoch_len,:])
             pointer += jump
-
-
     
 
         return(temp_list)
     
-    def load_bag(self):
-        pass
-    
+ 
     
         
 
