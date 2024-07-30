@@ -24,6 +24,14 @@ class Bag():
     
     def length(self):
         return(len(self._bag))
+    
+    def flatten_examples(self):
+        for i in range(len(self._bag)):
+            self._bag[i] = self._bag[i].flatten()
+            
+    def apply_callable(self, function):
+        for i in range(len(self._bag)):
+            self._bag[i] = function(self._bag[i])
         
         
         

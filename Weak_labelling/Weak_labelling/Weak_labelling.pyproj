@@ -40,6 +40,7 @@
     <Compile Include="data_loaders\CSV_loader.py" />
     <Compile Include="data_loaders\__init__.py" />
     <Compile Include="Weak_labelling.py" />
+    <Compile Include="weak_labelling_classes\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data_loaders\" />
@@ -48,6 +49,7 @@
     <Folder Include="embedding_models\" />
     <Folder Include="Filters\" />
     <Folder Include="bag_classes\" />
+    <Folder Include="weak_labelling_classes\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

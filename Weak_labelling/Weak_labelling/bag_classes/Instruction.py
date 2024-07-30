@@ -30,6 +30,13 @@ class Instruction():
         
     def get_bags_length(self):
         return len(self._bags)
+    
+    def parse_callable(self, function):
+        for b in self._bags:
+            b.apply_callable(function)
+            
+            
+        
         
 
 
