@@ -1,12 +1,15 @@
 from .bag import Bag
 import copy
+import numpy as np
 class Instruction():
     
     _name = None
     
-    _bags = []
+    _bags = None
     
     def __init__(self, bags: list[Bag] | Bag = None, name=''):
+        
+        self._bags = []
         
         self._name = name
         
@@ -22,6 +25,10 @@ class Instruction():
         else:
             self._bags.append(bags)
             
+    def create_bag(self, data:[np.ndarray]):
+        
+        self._bags.append(Bag(data))
+            
     def get_bags(self):
         return copy.copy(self._bags)
     
@@ -32,8 +39,18 @@ class Instruction():
         return len(self._bags)
     
     def parse_callable(self, function):
+               
+        #print(f'parsing{self._name}') 
         for b in self._bags:
-            b.apply_callable(function)
+            b.apply_callable(function) 
+        #print('instruction parse_callable')
+            
+    def clear_bags(self):
+        self._bags.clear()
+        
+    def get_name(self):
+        return self._name
+        
             
             
         

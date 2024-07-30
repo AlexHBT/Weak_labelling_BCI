@@ -1,6 +1,7 @@
 from mne import epochs
 import scipy.fft
 import numpy as np
+import copy
 class ssfft(object):
     
     epoch_length = None
@@ -25,11 +26,12 @@ class ssfft(object):
         y = scipy.fft.fft(signal)
         
         
-        P2 = np.absolute (y/y.shape[0]);
+        P2 = np.absolute (y/y.shape[0])
         
-        P1 = P2[1:int(y.shape[0]/2)+1,...];
-        P1[2:-2] = 2*P1[2:-2];
-        return P1[int(8*self.epoch_length):int(15*self.epoch_length),...] 
+        P1 = P2[1:int(y.shape[0]/2)+1]
+        P1[2:-2] = 2*P1[2:-2]
+        P1 = P1[int(8*self.epoch_length):int(15*self.epoch_length)] 
+        return P1
         
         
         

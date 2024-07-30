@@ -1,9 +1,12 @@
 import copy
+import numpy as np
 class Bag():
     
-    _bag = []
+    _bag = None
     
-    def __init__(self, data: list[list] = None):
+    def __init__(self, data: list[np.ndarray] = None):
+        
+        self._bag = []
         
         if data == None:
             pass
@@ -32,7 +35,11 @@ class Bag():
     def apply_callable(self, function):
         for i in range(len(self._bag)):
             self._bag[i] = function(self._bag[i])
+           
+        #print('debug')
         
+    def get_bag_mean(self):
+        return np.mean(np.stack(self._bag, axis = 0), axis = 0)
         
         
 

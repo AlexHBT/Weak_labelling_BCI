@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from ..bag_classes import (bag, Instruction)
+import copy
 
 class CSV_loader():
     
@@ -83,11 +84,14 @@ class CSV_loader():
         #print(triggers)
         #print(trig_values)
 
-        instructions = [[],[],[],[]]
+        instructions = [Instruction.Instruction(name = 'Stop'),
+                        Instruction.Instruction(name = 'Left'),
+                        Instruction.Instruction(name = 'Right'),
+                        Instruction.Instruction(name = 'Forward')]
 
         for i in range(len(triggers)-1):
 
-            instructions[int(trig_values[i])].append(self.cut_instance(data[triggers[i]:triggers[i+1],...]))
+            instructions[int(trig_values[i])].create_bag(self.cut_instance(data[triggers[i]:triggers[i+1],...]))
 
         return instructions
         
