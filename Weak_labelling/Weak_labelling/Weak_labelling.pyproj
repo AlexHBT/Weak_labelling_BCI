@@ -22,33 +22,33 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="bag_classes\bag.py" />
-    <Compile Include="bag_classes\Instruction.py" />
-    <Compile Include="bag_classes\__init__.py" />
-    <Compile Include="classifiers\__init__.py" />
-    <Compile Include="classifiers\SVM.py" />
-    <Compile Include="comparitors\Mean_bag_comparitor.py" />
-    <Compile Include="comparitors\__init__.py" />
-    <Compile Include="embedding_models\Flatten_data.py" />
-    <Compile Include="embedding_models\CSP.py" />
-    <Compile Include="embedding_models\SSFFT.py" />
-    <Compile Include="embedding_models\__init__.py" />
-    <Compile Include="Filters\Butterworth.py" />
-    <Compile Include="Filters\__init__.py" />
+    <Compile Include="weak_labelling_classes\bag_classes\bag.py" />
+    <Compile Include="weak_labelling_classes\bag_classes\Instruction.py" />
+    <Compile Include="weak_labelling_classes\bag_classes\__init__.py" />
+    <Compile Include="weak_labelling_classes\classifiers\__init__.py" />
+    <Compile Include="weak_labelling_classes\classifiers\SVM.py" />
+    <Compile Include="weak_labelling_classes\comparitors\Mean_bag_comparitor.py" />
+    <Compile Include="weak_labelling_classes\comparitors\__init__.py" />
+    <Compile Include="weak_labelling_classes\embedding_models\Flatten_data.py" />
+    <Compile Include="weak_labelling_classes\embedding_models\CSP.py" />
+    <Compile Include="weak_labelling_classes\embedding_models\SSFFT.py" />
+    <Compile Include="weak_labelling_classes\embedding_models\__init__.py" />
+    <Compile Include="weak_labelling_classes\Filters\Butterworth.py" />
+    <Compile Include="weak_labelling_classes\Filters\__init__.py" />
     <Compile Include="Offline_test.py" />
     <Compile Include="menu.py" />
-    <Compile Include="data_loaders\CSV_loader.py" />
-    <Compile Include="data_loaders\__init__.py" />
+    <Compile Include="weak_labelling_classes\data_loaders\CSV_loader.py" />
+    <Compile Include="weak_labelling_classes\data_loaders\__init__.py" />
     <Compile Include="Weak_labelling.py" />
     <Compile Include="weak_labelling_classes\__init__.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="data_loaders\" />
-    <Folder Include="classifiers\" />
-    <Folder Include="comparitors\" />
-    <Folder Include="embedding_models\" />
-    <Folder Include="Filters\" />
-    <Folder Include="bag_classes\" />
+    <Folder Include="weak_labelling_classes\data_loaders\" />
+    <Folder Include="weak_labelling_classes\classifiers\" />
+    <Folder Include="weak_labelling_classes\comparitors\" />
+    <Folder Include="weak_labelling_classes\embedding_models\" />
+    <Folder Include="weak_labelling_classes\Filters\" />
+    <Folder Include="weak_labelling_classes\bag_classes\" />
     <Folder Include="weak_labelling_classes\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

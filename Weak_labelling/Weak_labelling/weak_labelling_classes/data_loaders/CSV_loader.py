@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from ..bag_classes import (bag, Instruction)
 
 class CSV_loader():
     

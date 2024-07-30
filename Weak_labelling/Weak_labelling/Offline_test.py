@@ -1,11 +1,11 @@
 import pandas as pd
 import numpy as np
-from data_loaders.CSV_loader import CSV_loader
+from weak_labelling_classes.data_loaders.CSV_loader import CSV_loader
 
 from tkinter import filedialog
-from Filters.Butterworth import butterworth
-from embedding_models.SSFFT import ssfft
-from comparitors.Mean_bag_comparitor import Mean_bag
+from weak_labelling_classes.Filters.Butterworth import butterworth
+from weak_labelling_classes.embedding_models.SSFFT import ssfft
+from weak_labelling_classes.comparitors.Mean_bag_comparitor import Mean_bag
 
  
 class offline_test():
