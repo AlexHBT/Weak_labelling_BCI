@@ -17,7 +17,8 @@ class SVM():
         
         return np.mean(cross_val_score(self.classifier, X, y, cv=5))
 
-
+    def classify(self, X,y):
+        return self.classify_fold_accuracy(X,y)
 
      
 

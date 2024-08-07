@@ -11,6 +11,7 @@ from weak_labelling_classes.classifiers.SVM import SVM
 from weak_labelling_classes.Graphing.Bag_scatter import Bag_scatter
 from weak_labelling_classes.embedding_models.PCA import Pca
 from weak_labelling_classes.Graphing.Data_set_scatter import data_set_scatter
+from weak_labelling_classes.comparitors.CPS_mean_bag import CSP_mean_bag
 
 class offline_test():
     
@@ -106,6 +107,8 @@ class offline_test():
         return X, y
     
     def compare(self):
-        comparitor = Mean_bag()
+        comparitor = CSP_mean_bag(5)
         comparitor.compare_against_all(self.instructions)
+        
+    
         

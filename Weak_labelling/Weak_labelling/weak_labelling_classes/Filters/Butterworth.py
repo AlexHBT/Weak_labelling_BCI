@@ -1,6 +1,7 @@
 import scipy.signal
 class butterworth(object):
-    
+    name = 'butterworth'    
+
     filt_b = None
     filt_a = None 
     

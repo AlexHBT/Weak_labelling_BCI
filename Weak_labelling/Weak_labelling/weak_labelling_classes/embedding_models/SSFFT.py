@@ -4,6 +4,8 @@ import numpy as np
 import copy
 class ssfft(object):
     
+    name = 'ssfft'
+    
     epoch_length = None
     
     def __init__(self, epoch_length = 1):
