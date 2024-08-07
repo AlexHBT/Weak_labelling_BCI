@@ -29,6 +29,7 @@
     <Compile Include="weak_labelling_classes\classifiers\SVM.py" />
     <Compile Include="weak_labelling_classes\comparitors\Mean_bag_comparitor.py" />
     <Compile Include="weak_labelling_classes\comparitors\__init__.py" />
+    <Compile Include="weak_labelling_classes\embedding_models\PCA.py" />
     <Compile Include="weak_labelling_classes\embedding_models\Flatten_data.py" />
     <Compile Include="weak_labelling_classes\embedding_models\CSP.py" />
     <Compile Include="weak_labelling_classes\embedding_models\SSFFT.py" />
@@ -40,6 +41,9 @@
     <Compile Include="weak_labelling_classes\data_loaders\CSV_loader.py" />
     <Compile Include="weak_labelling_classes\data_loaders\__init__.py" />
     <Compile Include="Weak_labelling.py" />
+    <Compile Include="weak_labelling_classes\Graphing\Bag_scatter.py" />
+    <Compile Include="weak_labelling_classes\Graphing\Data_set_scatter.py" />
+    <Compile Include="weak_labelling_classes\Graphing\__init__.py" />
     <Compile Include="weak_labelling_classes\__init__.py" />
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +54,7 @@
     <Folder Include="weak_labelling_classes\Filters\" />
     <Folder Include="weak_labelling_classes\bag_classes\" />
     <Folder Include="weak_labelling_classes\" />
+    <Folder Include="weak_labelling_classes\Graphing\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

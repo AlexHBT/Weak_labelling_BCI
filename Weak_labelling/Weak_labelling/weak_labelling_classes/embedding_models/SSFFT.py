@@ -30,7 +30,7 @@ class ssfft(object):
         
         P1 = P2[1:int(y.shape[0]/2)+1]
         P1[2:-2] = 2*P1[2:-2]
-        P1 = P1[int(8*self.epoch_length):int(15*self.epoch_length)] 
+        P1 = P1[int(4*self.epoch_length):int(18*self.epoch_length)] 
         return P1
         
         

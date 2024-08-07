@@ -51,11 +51,21 @@ class Instruction():
     def get_name(self):
         return self._name
         
+    def get_vecorized_data(self):
+
+        data = []        
+
+        for b in self._bags:
+            data.extend(b.get_flattened_examples())
             
+        return np.stack(data, axis = 0)
             
         
+    def vectorize_data(self):
         
+        for b in self._bags:
+            b.flatten_examples()
 
 
-
+   
 

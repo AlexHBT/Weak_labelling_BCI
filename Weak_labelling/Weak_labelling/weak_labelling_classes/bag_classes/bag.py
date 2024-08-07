@@ -32,6 +32,15 @@ class Bag():
         for i in range(len(self._bag)):
             self._bag[i] = self._bag[i].flatten()
             
+    def get_flattened_examples(self):
+        
+        new_bag = []
+        
+        for i in range(len(self._bag)):
+            new_bag.append(self._bag[i].flatten())
+            
+        return new_bag 
+            
     def apply_callable(self, function):
         for i in range(len(self._bag)):
             self._bag[i] = function(self._bag[i])
@@ -43,6 +52,15 @@ class Bag():
         
         
 
+    def remove_example(self, index: int):
+        self._bag.pop(index)
 
 
-
+    def remove_examples(self, indexes:[int]):
+        
+        indexes.sort()
+        removed = 0
+        
+        for i in indexes:
+            self._bag.pop(i-removed)
+            removed+=1

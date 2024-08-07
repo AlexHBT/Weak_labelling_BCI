@@ -9,6 +9,12 @@ class SVM():
         self.classifier = SVC(kernel = 'rbf', class_weight='balanced')
     
     def classify_fold_accuracy(self, X, y):
+        
+        #print(np.sum(y))
+        
+        #self.classifier.fit(X, y)
+        print(f'number of classes {max(y) + 1}')
+        
         return np.mean(cross_val_score(self.classifier, X, y, cv=5))
 
 

@@ -1,3 +1,4 @@
+from re import X
 import pandas as pd
 import numpy as np
 from weak_labelling_classes.data_loaders.CSV_loader import CSV_loader
@@ -6,8 +7,11 @@ from tkinter import filedialog
 from weak_labelling_classes.Filters.Butterworth import butterworth
 from weak_labelling_classes.embedding_models.SSFFT import ssfft
 from weak_labelling_classes.comparitors.Mean_bag_comparitor import Mean_bag
+from weak_labelling_classes.classifiers.SVM import SVM
+from weak_labelling_classes.Graphing.Bag_scatter import Bag_scatter
+from weak_labelling_classes.embedding_models.PCA import Pca
+from weak_labelling_classes.Graphing.Data_set_scatter import data_set_scatter
 
- 
 class offline_test():
     
     instructions = None
@@ -18,10 +22,13 @@ class offline_test():
     def start(self):
         
         files = list(filedialog.askopenfilenames())
-        self.instructions  = self.load_file_data(files)
+        self.instructions = self.load_file_data(files)
+        self.instructions = self.instructions[1:]
         print('Loaded instructions')
         self.filter_pipe_line()
         self.print_lengths()
+        self.compare()
+        self.classify_data()
         
         
     def load_file_data(self, files):
@@ -70,4 +77,35 @@ class offline_test():
             print(f'Instruction 1 : {i.get_name()}: bags: {i.get_bags_length()}')
             print(f'Instruction 1 first bag length: {i.get_bag(0).length()}\n')
             
+       
+    def classify_data(self):
+        
+        classifier = SVM()
+        
+        X, y = self.get_ML_data()
+        
+        data_set_scatter().plot_dat_set(X,y)
+        
+        print(f'accuracy = {classifier.classify_fold_accuracy(X,y)}')
+            
+        
+    def get_ML_data(self):
+        label_list = []
+        y_list = []
+        X = []
+        
+        for i in range(len(self.instructions)):
+            data = self.instructions[i].get_vecorized_data()
+            y_list.append(np.zeros(len(data))+i)
+            label_list.append(self.instructions[i].get_name())
+            X.append(data)
+            
+        X = np.concatenate(X, axis = 0)
+        y = np.concatenate(y_list, axis = 0)
+        
+        return X, y
+    
+    def compare(self):
+        comparitor = Mean_bag()
+        comparitor.compare_against_all(self.instructions)
         
