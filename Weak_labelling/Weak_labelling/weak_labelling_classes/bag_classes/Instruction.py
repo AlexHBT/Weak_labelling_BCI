@@ -65,7 +65,17 @@ class Instruction():
         
         for b in self._bags:
             b.flatten_examples()
+            
+    def set_bag_instance(self, examples: [np.ndarray], index: int):
+        self._bags[index].set_bag(examples)
 
 
+    def set_bags(self,bags:[Bag]):
+        self._bags = bags
+            
+    def create_multi_bags(self, data:[[np.ndarray]]):
+        for d in data:
+            self.create_bag(d)
+            
    
 

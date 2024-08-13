@@ -36,7 +36,7 @@ class dataset_test():
         
         for r in range(len(results)):
             
-            df = pd.Dataframe(results[r])
+            df = pd.DataFrame(results[r])
             df.to_csv(os.path.join(os.path.abspath(save_dir),
                                    self.get_file_folder_name(files[r])))
             
@@ -45,22 +45,12 @@ class dataset_test():
         name = ""
 
         for i in range(3):
-            split_path = os.path.splitext(file_name)
+            split_path = os.path.split(file_name)
             name = split_path[1] + name
             file_name = split_path[0]
             
         return name
             
-            
-            
-            
-        
-            
-
-       
-        
-    
-
 
     def get_preprocessing_combos(self):
         b = butterworth()
@@ -86,37 +76,37 @@ class dataset_test():
         
         classifiers = [SVM()]
         
-        comparitors = [CSP_mean_bag(5), Mean_bag()]
+        comparitors = [Mean_bag()]
         
         
         
         for process in processing_combos:
-            try:
+            #try:
                 pre_inst = self.filter_pipe_line(insts, process)
             
                 
                 for comp in comparitors:
-                    try:
+                    #try:
                         comp.compare_against_all(pre_inst)
                         for clf in classifiers:
                     
-                            try:
+                            #try:
                                 results.append((self.get_pipeline_name(process,comp,clf)
                                             ,clf.classify(self.get_ML_data(insts))))
-                            except Exception as e:
-                                print('Failed to process pipline')
-                                print(f'pipeline: -> {self.get_pipeline_name(process,comp,clf)}')
-                                print(e)
+                            #except Exception as e:
+                                #print('Failed to process pipline')
+                                #print(f'pipeline: -> {self.get_pipeline_name(process,comp,clf)}')
+                                #print(e)
             
-                    except Exception as e:
-                        print('Failed to process pipline')
-                        print(f'pipeline: -> {self.get_pipeline_name(process,comp,none())}')
-                        print(e)
+                   # except Exception as e:
+                        #print('Failed to process pipline')
+                        #print(f'pipeline: -> {self.get_pipeline_name(process,comp,none())}')
+                        #print(e)
                     
-            except Exception as e:
-                    print('Failed to process pipline')
-                    print(f'pipeline: -> {self.get_pipeline_name(process,none(),none())}')
-                    print(e)
+            #except Exception as e:
+                    #print('Failed to process pipline')
+                    #print(f'pipeline: -> {self.get_pipeline_name(process,none(),none())}')
+                    #print(e)
         return results
             
         
@@ -182,7 +172,7 @@ class dataset_test():
         name = ""
         
         name = name + self.get_preprocess_names(process_combination)
-        name = name +' > '+ comparitor.__name__ +' > '+ classifier.__name__
+        name = name +' > '+ type(comparitor).__name__ +' > '+ type(classifier).__name__
         
         return name
     

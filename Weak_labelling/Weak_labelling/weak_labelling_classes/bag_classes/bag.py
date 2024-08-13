@@ -64,3 +64,6 @@ class Bag():
         for i in indexes:
             self._bag.pop(i-removed)
             removed+=1
+            
+    def set_bag(self, examples: [np.ndarray]):
+        self._bag = examples
