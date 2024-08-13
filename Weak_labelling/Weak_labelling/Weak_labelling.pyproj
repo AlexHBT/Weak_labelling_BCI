@@ -25,6 +25,7 @@
     <Compile Include="weak_labelling_classes\bag_classes\bag.py" />
     <Compile Include="weak_labelling_classes\bag_classes\Instruction.py" />
     <Compile Include="weak_labelling_classes\bag_classes\__init__.py" />
+    <Compile Include="weak_labelling_classes\classifiers\MLP.py" />
     <Compile Include="weak_labelling_classes\classifiers\__init__.py" />
     <Compile Include="weak_labelling_classes\classifiers\SVM.py" />
     <Compile Include="weak_labelling_classes\comparitors\Mean_bag_comparitor.py" />

@@ -7,7 +7,7 @@ class Pca():
         self.Transform = PCA(n_components = n_components)
         
     def fit(self,X):
-        return self.Transform.fit(X)
+        return self.Transform.fit_transform(X)
         
 
 

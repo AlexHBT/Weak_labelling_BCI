@@ -4,9 +4,12 @@ import numpy as np
 class CSP_mean_bag():
     
     comps = None
+    
+    threshhold = None
 
     def __init__(self, components):
         self.comps = components
+        self.threshhold = 0.7
         
     
     def compare_against_all(self, instructions:list):
@@ -18,6 +21,8 @@ class CSP_mean_bag():
             negs = instructions[:]
             negs.pop(i)
             values.append(self.compare_inst(pos,negs)) 
+            
+        self.remove_instances(instructions, values)
       
     def compare_inst(self, pos_inst, neg_insts):
         
@@ -35,18 +40,19 @@ class CSP_mean_bag():
 
     def compare_one_agaist_many(self, pos_bag, neg_bags):
             
-        pos_comparisons = []
+
+        all_neg_examples = []
 
         for n in neg_bags:
-            pos_comparisons.append(self.compare_bag(pos_bag, n))
+            
+            all_neg_examples.extend(n.get_bag())
           
-        means = np.mean(np.array(pos_comparisons), axis = 0)
-        return means
+        return self.compare_bag(pos_bag.get_bag(), all_neg_examples)
     
               
     def compare_bag(self, pos_bag, neg_bag):
         
-        pos, neg = self.embed_CSP(pos_bag.get_bag(), neg_bag.get_bag())
+        pos, neg = self.embed_CSP(pos_bag, neg_bag)
         
         pos = self.flatten_array(pos)
         neg = self.flatten_array(neg)
@@ -57,7 +63,7 @@ class CSP_mean_bag():
         comparisons = []
         
         for i in range(len(pos)):
-            comparisons.append(self.cosign_sim(pos[i],
+            comparisons.append(self.inner_prod(pos[i],
                                                difference 
                                                ))
             
@@ -72,7 +78,7 @@ class CSP_mean_bag():
     
     def embed_CSP(self, pos_bag, neg_bag):
         
-        c = CSP(n_components = self.comps)
+        
         pos = np.swapaxes(np.stack(pos_bag, axis = 0),1,2)
         neg = np.swapaxes(np.stack(neg_bag, axis = 0),1,2)
         
@@ -82,16 +88,16 @@ class CSP_mean_bag():
         X = np.concatenate((pos,neg), axis = 0)
         y = np.concatenate((pos_y,neg_y), axis = 0)
         
-        c =  CSP(n_components = self.comps).fit(X,y)
+        c =  CSP(n_components = self.comps,transform_into= 'csp_space').fit(X,y)
         
         
         pos = []
         neg = []
         
         for i in pos_bag:
-            pos.append(c.transform(i.T))
+            pos.append(c.transform(i))
         for i in neg_bag:
-            neg.append(c.transform(i.T))
+            neg.append(c.transform(i))
            
         return pos, neg
         

@@ -17,9 +17,9 @@ class data_set_scatter():
         pca = sklearn.decomposition.PCA(n_components=2)
         X = pca.fit_transform(X)
         
-        self.ax.scatter(X[:,0], X[:,1], c = y)
+        scatter = self.ax.scatter(X[:,0], X[:,1], c = y)
         self.ax.set_title('Post processing data principle components')
-        
+        self.ax.legend(*scatter.legend_elements())
         plt.show(block = True)
         
 

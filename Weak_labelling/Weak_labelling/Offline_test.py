@@ -12,6 +12,9 @@ from weak_labelling_classes.Graphing.Bag_scatter import Bag_scatter
 from weak_labelling_classes.embedding_models.PCA import Pca
 from weak_labelling_classes.Graphing.Data_set_scatter import data_set_scatter
 from weak_labelling_classes.comparitors.CPS_mean_bag import CSP_mean_bag
+from weak_labelling_classes.embedding_models import CSP
+
+from weak_labelling_classes.classifiers.MLP import Mlp
 
 class offline_test():
     
@@ -26,9 +29,10 @@ class offline_test():
         self.instructions = self.load_file_data(files)
         self.instructions = self.instructions[1:]
         print('Loaded instructions')
-        self.filter_pipe_line()
+        #self.filter_pipe_line()
         self.print_lengths()
         self.compare()
+        self.post_process()
         self.classify_data()
         
         
@@ -81,11 +85,16 @@ class offline_test():
        
     def classify_data(self):
         
-        classifier = SVM()
+        #classifier = SVM()
+
+        classifier = Mlp()
         
         X, y = self.get_ML_data()
         
         data_set_scatter().plot_dat_set(X,y)
+        
+        #pca_transformer = Pca(5)
+        #X = pca_transformer.fit(X)
         
         print(f'accuracy = {classifier.classify_fold_accuracy(X,y)}')
             
@@ -110,5 +119,6 @@ class offline_test():
         comparitor = CSP_mean_bag(5)
         comparitor.compare_against_all(self.instructions)
         
-    
-        
+    def post_process(self):
+        csp = CSP.csp()
+        csp.fit(self.instructions)

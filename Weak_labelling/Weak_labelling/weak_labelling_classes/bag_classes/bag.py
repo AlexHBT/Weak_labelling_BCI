@@ -23,7 +23,7 @@ class Bag():
         return self._bag[index]
     
     def get_bag(self):
-        return copy.copy(self._bag)
+        return copy.deepcopy(self._bag)
     
     def length(self):
         return(len(self._bag))
