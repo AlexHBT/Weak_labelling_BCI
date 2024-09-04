@@ -1,26 +1,28 @@
-from xml.dom.expatbuilder import makeBuilder
 from mne.decoding import CSP
 import numpy as np
 import matplotlib.pyplot as plt
 import sklearn.decomposition 
 import datetime
 import os
+import scipy.fft
 
-class CSP_mean_bag():
+class FFT_mean_bag():
     
+    epoch_length = None
     comps = None
     
     threshhold = None
     
-    make_graphs = True
+    make_graphs = False
     
     instruction_type = None 
     
     plot_dir = 'D:\Weak_labelling_Graph_plots'
 
-    def __init__(self, components):
-        self.comps = components
-        self.threshhold = 0.7
+    def __init__(self):
+        
+        self.threshhold = 0.5
+        self.epoch_length = 1
         
     
     def compare_against_all(self, instructions:list):
@@ -64,7 +66,7 @@ class CSP_mean_bag():
               
     def compare_bag(self, pos_bag, neg_bag):
         
-        pos, neg = self.embed_CSP(pos_bag, neg_bag)
+        pos, neg = self.embed_fft(pos_bag, neg_bag)
         
         pos = self.flatten_array(pos)
         neg = self.flatten_array(neg)
@@ -77,7 +79,7 @@ class CSP_mean_bag():
         comparisons = []
         
         for i in range(len(pos)):
-            comparisons.append(self.inner_prod(pos[i],
+            comparisons.append(self.cosign_sim(pos[i],
                                                difference 
                                                ))
             
@@ -85,33 +87,21 @@ class CSP_mean_bag():
         
             
     def cosign_sim(self,vec1,vec2):
-        return np.dot(vec1, vec2)/(np.linalg.norm(vec1)*np.linalg.norm(vec2))
+        return np.abs(np.dot(vec1, vec2)/(np.linalg.norm(vec1)*np.linalg.norm(vec2)))
     
     def inner_prod(self, vec1, vec2):
         return np.dot(vec1, vec2)
     
-    def embed_CSP(self, pos_bag, neg_bag):
+    def embed_fft(self, pos_bag, neg_bag):
         
-        
-        pos = np.swapaxes(np.stack(pos_bag, axis = 0),1,2)
-        neg = np.swapaxes(np.stack(neg_bag, axis = 0),1,2)
-        
-        pos_y = np.zeros(pos.shape[0])
-        neg_y = np.ones(neg.shape[0])
-        
-        X = np.concatenate((pos,neg), axis = 0)
-        y = np.concatenate((pos_y,neg_y), axis = 0)
-        
-        c =  CSP(n_components = self.comps,transform_into= 'csp_space').fit(X,y)
-        
-        
+
         pos = []
         neg = []
         
         for i in pos_bag:
-            pos.append(np.mean(c.transform(i), axis = 0))
+            pos.append(self.ssfft_fit(i))
         for i in neg_bag:
-            neg.append(np.mean(c.transform(i), axis = 0))
+            neg.append(self.ssfft_fit(i))
            
         return pos, neg
         
@@ -174,7 +164,7 @@ class CSP_mean_bag():
         pos = np.stack(pos, axis = 0)
         neg = np.stack(neg, axis = 0)
         
-        fig = plt.figure()
+        fig = plt.figure(figsize=(5,10))
         axs = fig.subplots(pos.shape[1],1)
         
         for i in range(pos.shape[1]):
@@ -182,13 +172,13 @@ class CSP_mean_bag():
             
             ax.hist(neg[:,i], color = (0,0,1,0.5), label = 'Negative')
             ax.hist(pos[:,i], color = (1,0,0,1), label = 'Positive')
-            ax.legend()
+        ax[0].legend()
             
             
         
         axs[0].set_title(f'{inst_name} vs ')
         time = datetime.datetime.now().strftime('%H-%M-%S')     
-
+        fig.tight_layout()
         fig.savefig(os.path.join(self.plot_dir,f'Dist {inst_name} - {time}.png'))
         
 
@@ -204,3 +194,25 @@ class CSP_mean_bag():
         y = np.concatenate((pos_y, neg_y))
         
         return X,y
+
+   
+    def ssfft_fit(self, signal):
+        
+        y = scipy.fft.fft(signal)
+        
+        
+        P2 = np.absolute (y/y.shape[0])
+        
+        P1 = P2[1:int(y.shape[0]/2)+1]
+        P1[2:-2] = 2*P1[2:-2]
+        P1 = P1[int(8*self.epoch_length):int(14*self.epoch_length)] 
+        return self.compress_bags(P1)
+    
+    def compress_bags(self, signal:np.ndarray):
+        
+        new_signal = []
+        
+        for i in range(signal.shape[1]):
+            new_signal.append(np.mean(signal[:,i].reshape((2,-1), order = 'f'), axis = 0))
+            
+        return np.squeeze(np.stack(new_signal, axis = 1))

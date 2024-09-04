@@ -15,10 +15,15 @@ class SVM():
         #self.classifier.fit(X, y)
         print(f'number of classes {max(y) + 1}')
         
-        return np.mean(cross_val_score(self.classifier, X, y, cv=5))
-
+        results = np.mean(cross_val_score(self.classifier, X, y, cv=5))
+        self.classifier.fit(X, y)
+        return results
+    
     def classify(self, X,y):
         return self.classify_fold_accuracy(X,y)
+    
+    def evaluate(self,X,y):
+        return self.classifier.score(X,y)
 
      
 

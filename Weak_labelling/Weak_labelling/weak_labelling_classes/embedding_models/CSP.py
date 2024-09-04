@@ -1,12 +1,15 @@
 from mne.decoding import CSP
 import copy
 import numpy as np
+import mne
 
 class csp():
     
     transformer = None
     
     def __init__(self, components = 5):
+        
+        mne.set_log_level('WARNING')
         
         self.transformer = CSP(n_components = components,transform_into= 'csp_space')
         

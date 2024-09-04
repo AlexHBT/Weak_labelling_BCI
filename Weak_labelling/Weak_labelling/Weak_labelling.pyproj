@@ -30,6 +30,7 @@
     <Compile Include="weak_labelling_classes\classifiers\SVM.py" />
     <Compile Include="weak_labelling_classes\comparitors\Mean_bag_comparitor.py" />
     <Compile Include="weak_labelling_classes\comparitors\CPS_mean_bag.py" />
+    <Compile Include="weak_labelling_classes\comparitors\SSFFT_mean_bag.py" />
     <Compile Include="weak_labelling_classes\comparitors\__init__.py" />
     <Compile Include="weak_labelling_classes\embedding_models\unembedded.py" />
     <Compile Include="weak_labelling_classes\embedding_models\PCA.py" />
@@ -47,6 +48,8 @@
     <Compile Include="weak_labelling_classes\Graphing\Bag_scatter.py" />
     <Compile Include="weak_labelling_classes\Graphing\Data_set_scatter.py" />
     <Compile Include="weak_labelling_classes\Graphing\__init__.py" />
+    <Compile Include="weak_labelling_classes\Tests\Participant_test.py" />
+    <Compile Include="weak_labelling_classes\Tests\Simulated_trainig.py" />
     <Compile Include="weak_labelling_classes\Tests\Dataset_test.py" />
     <Compile Include="weak_labelling_classes\Tests\__init__.py" />
     <Compile Include="weak_labelling_classes\__init__.py" />
