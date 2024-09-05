@@ -58,7 +58,7 @@ class Simulated_Training():
             try:
                 train_files = []
                 test_files = []
-                for j in range(3):
+                for j in range(2):
                     if i-j<0:
                         break
                     else:

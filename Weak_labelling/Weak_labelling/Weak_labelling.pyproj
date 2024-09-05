@@ -30,6 +30,7 @@
     <Compile Include="weak_labelling_classes\classifiers\SVM.py" />
     <Compile Include="weak_labelling_classes\comparitors\Mean_bag_comparitor.py" />
     <Compile Include="weak_labelling_classes\comparitors\CPS_mean_bag.py" />
+    <Compile Include="weak_labelling_classes\comparitors\ICA_inner_product.py" />
     <Compile Include="weak_labelling_classes\comparitors\SSFFT_mean_bag.py" />
     <Compile Include="weak_labelling_classes\comparitors\__init__.py" />
     <Compile Include="weak_labelling_classes\embedding_models\unembedded.py" />
