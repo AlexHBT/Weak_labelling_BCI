@@ -13,10 +13,10 @@ class Bag():
         else:
             self.extend_bag(data)
             
-    def add_example(self, example:list):
+    def add_example(self, example:np.ndarray):
         self._bag.append(example)
         
-    def extend_bag(self, bag:list[list]):
+    def extend_bag(self, bag:list[np.ndarray]):
         self._bag.extend(bag)
         
     def get_example(self, index: int):

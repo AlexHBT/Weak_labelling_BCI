@@ -12,6 +12,7 @@ from ..embedding_models.PCA import Pca
 from ..Graphing.Data_set_scatter import data_set_scatter
 from ..comparitors.CPS_mean_bag import CSP_mean_bag
 from ..comparitors import SSFFT_mean_bag
+from ..comparitors import ICA_inner_product
 from ..embedding_models import CSP
 
 from ..classifiers.MLP import Mlp
@@ -27,12 +28,14 @@ class participant_test(object):
         
         self.instructions = self.load_file_data(train_files)
         self.instructions = self.instructions[1:]
+        self.instructions.pop(2)
         self.test_instructions = self.load_file_data(train_files)[1:]
         pre_counts = self.count_instructions()
         print('Loaded instructions')
-        self.filter_pipe_line()
-        self.print_lengths()
+        #self.filter_pipe_line()
+        #self.print_lengths()
         counts = self.compare()
+        self.filter_pipe_line()
         self.post_process()
         accuracy = self.classify_data()
 
@@ -156,7 +159,8 @@ class participant_test(object):
     def compare(self):
         #comparitor = CSP_mean_bag(5)
         #comparitor.compare_against_all(self.instructions)
-        comparitor = SSFFT_mean_bag.FFT_mean_bag()
+        #comparitor = SSFFT_mean_bag.FFT_mean_bag()
+        comparitor = ICA_inner_product.ICA_inner()
         comparitor.compare_against_all(self.instructions)
         return self.count_instructions()
         

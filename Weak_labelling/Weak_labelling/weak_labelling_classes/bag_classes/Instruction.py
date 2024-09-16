@@ -1,3 +1,4 @@
+from numpy.random import f
 from .bag import Bag
 import copy
 import numpy as np
@@ -78,4 +79,10 @@ class Instruction():
             self.create_bag(d)
             
    
+    def get_all_data(self):
+        all_data = []
+        
+        for b in self._bags:
+            all_data.extend(b.get_bag())
 
+        return all_data
