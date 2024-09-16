@@ -14,7 +14,7 @@ class ICA_inner():
     instruction_type = None
     current_negative = None
     
-    threshold = 0.7
+    threshold = 0.5
     
     def compare_against_all(self, instructions:list):
             
@@ -146,11 +146,12 @@ class ICA_inner():
         return np.concatenate(([0], np.array(layout).flatten())) 
     
     def compare_values(self,perfect,example):
-        perfect = perfect* np.max(example)
+        #perfect = perfect* np.max(example)
         #v2 = v2/np.linalg.norm(v2)
         #print(v1)
         #print(v2)
-        return np.inner(perfect,example)
+        #return np.inner(perfect,example)
+        return self.cos_sim(perfect, example)
     
     def get_components(self,example, instruction, n_comps = 3):
         sources, mix = self.ICA_data(example)
