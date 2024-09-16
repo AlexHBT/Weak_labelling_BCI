@@ -3,6 +3,8 @@ import numpy as np
 import os
 from .Participant_test import participant_test
 import pandas as pd
+from ..comparitors.ICA_inner import ICA_inner_2
+import math
 
 class Simulated_Training():
     
@@ -18,11 +20,13 @@ class Simulated_Training():
         
         for i in range(len(participants)):
             
+                print (f'testing participant {i+1}: {names[i]}') 
             
                 participant_accuracies.append(
                     self.test_participant(participants[i]))
             
-                df = pd.DataFrame(participant_accuracies[-1])
+                df = pd.DataFrame(participant_accuracies[-1], columns = ICA_inner_2().get_data_columns())
+                
                 df.to_csv(
                     os.path.join(os.path.abspath(output_dir), f'{names[i]}_accuracies.csv'))
             
@@ -53,22 +57,25 @@ class Simulated_Training():
         test_files = []
         
         accuracies = []
-        
-        for i in range(len(files)-1):
+        #for i in range(len(files)-1):
+        for i in range(len(files)):
+                
             try:
+                self.print_progress(i,len(files))
                 train_files = []
                 test_files = []
-                for j in range(2):
+                for j in range(1):
                     if i-j<0:
                         break
                     else:
                         train_files.append(files[i-j])
-                test_files.append(files[i+1])
+                #test_files.append(files[i+1])
             
-                accuracies.append(pt.start(train_files, test_files))
+                accuracies.append(pt.start_2(train_files))
                 
             except:
-                print('Failed to get results')
+                print(f'\n ({i}/{len(files)} Failed to get results')
+        self.print_progress(len(files),len(files))
         return accuracies
         
     def run_test(self, train_files, test_files):
@@ -95,6 +102,20 @@ class Simulated_Training():
         return files
                 
             
-        
+    
+    def print_progress(self,i, length, bar_length = 20):
+        if i == 0:
+            bar = '-' * bar_length
+            print(f'session ({i}/{length}) [' + '-'*bar_length+ ']', end = '\r')
+            
+        elif i == length:
+            print(f'session ({i}/{length}) [' + '='*bar_length+ '] done', end = '\n')
+        else:
+            percent = i/length
+            eq = '=' * int(bar_length*percent)
+            bar = '-' * int(bar_length-int(bar_length*percent))
+            print(f'session ({i}/{length}) [{eq}{bar}]', end = '\r')
+            
+    
 
 

@@ -28,6 +28,9 @@
     <Compile Include="weak_labelling_classes\classifiers\MLP.py" />
     <Compile Include="weak_labelling_classes\classifiers\__init__.py" />
     <Compile Include="weak_labelling_classes\classifiers\SVM.py" />
+    <Compile Include="weak_labelling_classes\Comparable_methods\BCI_TVR.py" />
+    <Compile Include="weak_labelling_classes\Comparable_methods\__init__.py" />
+    <Compile Include="weak_labelling_classes\comparitors\ICA_inner.py" />
     <Compile Include="weak_labelling_classes\comparitors\Mean_bag_comparitor.py" />
     <Compile Include="weak_labelling_classes\comparitors\CPS_mean_bag.py" />
     <Compile Include="weak_labelling_classes\comparitors\ICA_inner_product.py" />
@@ -40,6 +43,7 @@
     <Compile Include="weak_labelling_classes\embedding_models\SSFFT.py" />
     <Compile Include="weak_labelling_classes\embedding_models\__init__.py" />
     <Compile Include="weak_labelling_classes\Filters\Butterworth.py" />
+    <Compile Include="weak_labelling_classes\Filters\Bag_filters.py" />
     <Compile Include="weak_labelling_classes\Filters\__init__.py" />
     <Compile Include="Offline_test.py" />
     <Compile Include="menu.py" />
@@ -64,6 +68,7 @@
     <Folder Include="weak_labelling_classes\bag_classes\" />
     <Folder Include="weak_labelling_classes\" />
     <Folder Include="weak_labelling_classes\Graphing\" />
+    <Folder Include="weak_labelling_classes\Comparable_methods\" />
     <Folder Include="weak_labelling_classes\Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

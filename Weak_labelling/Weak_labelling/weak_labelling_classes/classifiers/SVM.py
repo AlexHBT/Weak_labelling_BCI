@@ -13,7 +13,8 @@ class SVM():
         #print(np.sum(y))
         
         #self.classifier.fit(X, y)
-        print(f'number of classes {max(y) + 1}')
+        #print(f'number of classes {max(y) + 1}')
+        #print(f'\n unique values')
         
         results = np.mean(cross_val_score(self.classifier, X, y, cv=5))
         self.classifier.fit(X, y)

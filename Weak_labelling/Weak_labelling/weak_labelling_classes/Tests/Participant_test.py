@@ -17,6 +17,8 @@ from ..embedding_models import CSP
 
 from ..classifiers.MLP import Mlp
 
+from ..comparitors.ICA_inner import ICA_inner_2
+
 
 class participant_test(object):
     
@@ -24,12 +26,12 @@ class participant_test(object):
     instructions = None
     test_instructions = None
     
-    def start(self, train_files, test_files ):
+    def start(self, train_files, test_files):
         
         self.instructions = self.load_file_data(train_files)
         self.instructions = self.instructions[1:]
         self.instructions.pop(2)
-        self.test_instructions = self.load_file_data(train_files)[1:]
+        #self.test_instructions = self.load_file_data(train_files)[1:]
         pre_counts = self.count_instructions()
         print('Loaded instructions')
         #self.filter_pipe_line()
@@ -46,7 +48,14 @@ class participant_test(object):
         data.extend(pre_counts) 
         return data
         
+    def start_2(self, train_files):
         
+        self.instructions = self.load_file_data(train_files)
+        self.instructions = self.instructions[1:]
+        self.instructions.pop(2)
+        
+        test = ICA_inner_2()
+        return test.test_2_classes_all(self.instructions[0],self.instructions[1])
         
     def load_file_data(self, files):
         csvl = CSV_loader()

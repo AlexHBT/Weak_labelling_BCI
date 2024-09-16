@@ -1,4 +1,5 @@
 from sklearn.decomposition import PCA
+import numpy as np
 class Pca():
     
     Transform = None
@@ -9,6 +10,14 @@ class Pca():
     def fit(self,X):
         return self.Transform.fit_transform(X)
         
-
-
-
+    def PCA_bags(self,bags):
+        y = []
+        total_data = []
+        for b in range(len(bags)):
+            y.append(np.zeros(len(bags[b])) + b)
+            for i in bags[b]:
+                total_data.append(i.reshape(1,-1))
+        total_data = np.concatenate(total_data, axis = 0)
+        pca = PCA(2)
+        total_data = pca.fit_transform(total_data)
+        return total_data, np.concatenate(y)
