@@ -39,7 +39,7 @@
     <Compile Include="weak_labelling_classes\embedding_models\CSP.py" />
     <Compile Include="weak_labelling_classes\embedding_models\SSFFT.py" />
     <Compile Include="weak_labelling_classes\embedding_models\__init__.py" />
-    <Compile Include="weak_labelling_classes\Filters\Butterworth.py" />
+    <Compile Include="weak_labelling_classes\Filters\class1.py" />
     <Compile Include="weak_labelling_classes\Filters\__init__.py" />
     <Compile Include="Offline_test.py" />
     <Compile Include="menu.py" />
