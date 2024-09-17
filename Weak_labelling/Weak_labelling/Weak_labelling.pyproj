@@ -51,8 +51,11 @@
     <Compile Include="weak_labelling_classes\data_loaders\__init__.py" />
     <Compile Include="Weak_labelling.py" />
     <Compile Include="weak_labelling_classes\Graphing\Bag_scatter.py" />
+    <Compile Include="weak_labelling_classes\Graphing\ICA_all_graphs.py" />
     <Compile Include="weak_labelling_classes\Graphing\Data_set_scatter.py" />
     <Compile Include="weak_labelling_classes\Graphing\__init__.py" />
+    <Compile Include="weak_labelling_classes\Metrics\ICA_metrics.py" />
+    <Compile Include="weak_labelling_classes\Metrics\__init__.py" />
     <Compile Include="weak_labelling_classes\Tests\Participant_test.py" />
     <Compile Include="weak_labelling_classes\Tests\Simulated_trainig.py" />
     <Compile Include="weak_labelling_classes\Tests\Dataset_test.py" />
@@ -69,6 +72,7 @@
     <Folder Include="weak_labelling_classes\" />
     <Folder Include="weak_labelling_classes\Graphing\" />
     <Folder Include="weak_labelling_classes\Comparable_methods\" />
+    <Folder Include="weak_labelling_classes\Metrics\" />
     <Folder Include="weak_labelling_classes\Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

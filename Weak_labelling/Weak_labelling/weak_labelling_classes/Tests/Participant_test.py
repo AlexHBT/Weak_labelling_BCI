@@ -30,7 +30,7 @@ class participant_test(object):
         
         self.instructions = self.load_file_data(train_files)
         self.instructions = self.instructions[1:]
-        self.instructions.pop(2)
+        self.instructions.pop(0)
         #self.test_instructions = self.load_file_data(train_files)[1:]
         pre_counts = self.count_instructions()
         print('Loaded instructions')
@@ -48,13 +48,13 @@ class participant_test(object):
         data.extend(pre_counts) 
         return data
         
-    def start_2(self, train_files):
+    def start_2(self, train_files, name:str, session:int):
         
         self.instructions = self.load_file_data(train_files)
         self.instructions = self.instructions[1:]
         self.instructions.pop(2)
         
-        test = ICA_inner_2()
+        test = ICA_inner_2(session,name)
         return test.test_2_classes_all(self.instructions[0],self.instructions[1])
         
     def load_file_data(self, files):

@@ -18,6 +18,7 @@ class SVM():
         
         results = np.mean(cross_val_score(self.classifier, X, y, cv=5))
         self.classifier.fit(X, y)
+        #results = self.evaluate(X,y)
         return results
     
     def classify(self, X,y):

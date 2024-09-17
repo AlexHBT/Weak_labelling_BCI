@@ -23,9 +23,9 @@ class Simulated_Training():
                 print (f'testing participant {i+1}: {names[i]}') 
             
                 participant_accuracies.append(
-                    self.test_participant(participants[i]))
+                    self.test_participant(participants[i],names[i]))
             
-                df = pd.DataFrame(participant_accuracies[-1], columns = ICA_inner_2().get_data_columns())
+                df = pd.DataFrame(participant_accuracies[-1], columns = ICA_inner_2('','').get_data_columns())
                 
                 df.to_csv(
                     os.path.join(os.path.abspath(output_dir), f'{names[i]}_accuracies.csv'))
@@ -47,7 +47,7 @@ class Simulated_Training():
         return participants, participants_names
         
     
-    def test_participant(self, participant_dir):
+    def test_participant(self, participant_dir, part_name):
         
         pt = participant_test()
         
@@ -71,10 +71,10 @@ class Simulated_Training():
                         train_files.append(files[i-j])
                 #test_files.append(files[i+1])
             
-                accuracies.append(pt.start_2(train_files))
+                accuracies.append(pt.start_2(train_files,part_name, i+1))
                 
             except:
-                print(f'\n ({i}/{len(files)} Failed to get results')
+                print(f'\n ({i}/{len(files)}) Failed to get results')
         self.print_progress(len(files),len(files))
         return accuracies
         

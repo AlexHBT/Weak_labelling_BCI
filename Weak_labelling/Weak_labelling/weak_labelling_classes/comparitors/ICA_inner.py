@@ -1,3 +1,4 @@
+import graphlib
 import numpy as np
 import scipy as sci
 from ..bag_classes.bag import Bag
@@ -9,6 +10,8 @@ from ..embedding_models.PCA import Pca
 from sklearn.svm import SVC
 from ..Comparable_methods.BCI_TVR import bci_tvr
 import copy
+from ..Metrics.ICA_metrics import ica_metrics
+from ..Graphing.ICA_all_graphs import ica_all_graphs
 class ICA_inner_2():
     
     ints_dict = {
@@ -20,19 +23,27 @@ class ICA_inner_2():
         'left': 1
     }
     
+    session = None
+    
+    name = None
+    
+    graph = None
+    
     def get_data_columns(self):
         return ['Method accuracy','Without method accuracy',
                 'seperation_score', 
                 'pre bag 1 size', 'pre bag 2 size',
-                'post bag 1 size', 'post bag 2 size']
+                'post bag 1 size', 'post bag 2 size',
+                'dloss']
     
 
-    def __init__(self):
-        pass
-    
+    def __init__(self, session, name):
+        self.session = f'session {session}'
+        self.name = name
     def test_2_classes_all(self, inst1, inst2):
-        comp_method = bci_tvr()       
-
+        comp_method = bci_tvr()
+        self.graph = ica_all_graphs().create_dir(self.name, self.session)
+        
         bag1 = self.combine_bags(inst1.get_bags()).get_bag()
         bag2 = self.combine_bags(inst2.get_bags()).get_bag()
         orgin_acc = comp_method.process_and_classify([bag1, bag2])
@@ -40,13 +51,16 @@ class ICA_inner_2():
         filt_bag2 = self.filter_bag(bag2)
         comps1 = self.convert_bag(filt_bag1,self.ints_dict[inst1.get_name().lower()])
         comps2 = self.convert_bag(filt_bag2,self.ints_dict[inst2.get_name().lower()])
+        
         index1, index2, sep_score = self.get_kept_indexes2(comps1,comps2)
         bpl1 = len(bag1)
         bpl2 = len(bag2)
         bag1 = self.retrive_index_data(bag1, index1)
         bag2 = self.retrive_index_data(bag2, index2)
+        #self.graph.plot_scatter([bag1, bag2], ['left','right'])
         processed_accuracy = comp_method.process_and_classify([bag1, bag2])
-        return [processed_accuracy, orgin_acc, sep_score, bpl1, bpl2, len(index1), len(index2)]
+        dloss = self.get_dloss([bpl1, bpl2], [len(index1), len(index2)])
+        return [processed_accuracy, orgin_acc, sep_score, bpl1, bpl2, len(index1), len(index2),dloss]
         
     
         
@@ -71,11 +85,12 @@ class ICA_inner_2():
         return np.concatenate(([0], np.array(layout).flatten())) 
     
     def compare_values(self,v1,v2):
-        v1 = v1* np.max(v2)
+        #v1 = v1* np.max(v2)
         #v2 = v2/np.linalg.norm(v2)
         #print(v1)
         #print(v2)
-        return np.inner(v1,v2)
+        #return np.inner(v1,v2)
+        return self.cos_sim(v1,v2)
     
     def whitten(self,epoch):
         E, D = np.linalg.eig(np.cov(epoch.T))
@@ -182,20 +197,24 @@ class ICA_inner_2():
     
     def PCA_data(self, bags:[[np.ndarray],[np.ndarray]]):
         p = Pca()
-        return p.PCA_bags(bags)
+        return p.PCA_bags(bags, ncomps = 2) # change pca comps
         
     def cos_sim(self,a,b):
         return np.dot(a, b)/(np.linalg.norm(a)*np.linalg.norm(b))
     
     def get_kept_indexes2(self, bag1, bag2):
+        bag1 = self.fft_bag(bag1)
+        bag2 = self.fft_bag(bag2)
         X, y = self.PCA_data([bag1,bag2])
         bag1, bag2 = self.split_bag_2(X,y)
+        self.graph.plot_scatter([bag1, bag2], ['left','right'],means = True)
         m1 = self.get_bag_mean(bag1)
         m2 = self.get_bag_mean(bag2)
         sep1 = self.get_sep(m1,m2)
         sep2 = self.get_sep(m2,m1)
         bag1, index1 = self.calc_kept_values(sep1, bag1)
         bag2, index2 = self.calc_kept_values(sep2, bag2)
+        self.graph.plot_scatter([bag1, bag2], ['left','right'],means = False)
         sep_score = self.test_seperation([bag1,bag2])
         return index1, index2, sep_score
 
@@ -207,7 +226,7 @@ class ICA_inner_2():
         indexes = []
         count = 0
         for i in bag:
-            if self.cos_sim(sep, i) > 0.7:
+            if self.cos_sim(sep, i) > 0.5: # Threshold value
                 kept_values.append(i)
                 indexes.append(count)
             count+= 1
@@ -242,4 +261,6 @@ class ICA_inner_2():
         return kept_epochs
     
     
-        
+    def get_dloss(self,bag_sizes,r_sizes):
+        m = ica_metrics()
+        return m.data_loss(bag_sizes,r_sizes)
