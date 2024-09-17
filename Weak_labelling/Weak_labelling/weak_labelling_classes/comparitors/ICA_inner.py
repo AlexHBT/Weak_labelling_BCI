@@ -12,6 +12,8 @@ from ..Comparable_methods.BCI_TVR import bci_tvr
 import copy
 from ..Metrics.ICA_metrics import ica_metrics
 from ..Graphing.ICA_all_graphs import ica_all_graphs
+from ..Comparable_methods.EEGnet import eegnet
+from ..Comparable_methods.CSP_LDA import csp_classifier
 class ICA_inner_2():
     
     ints_dict = {

@@ -29,6 +29,8 @@
     <Compile Include="weak_labelling_classes\classifiers\__init__.py" />
     <Compile Include="weak_labelling_classes\classifiers\SVM.py" />
     <Compile Include="weak_labelling_classes\Comparable_methods\BCI_TVR.py" />
+    <Compile Include="weak_labelling_classes\Comparable_methods\CSP_LDA.py" />
+    <Compile Include="weak_labelling_classes\Comparable_methods\EEGnet.py" />
     <Compile Include="weak_labelling_classes\Comparable_methods\__init__.py" />
     <Compile Include="weak_labelling_classes\comparitors\ICA_inner.py" />
     <Compile Include="weak_labelling_classes\comparitors\Mean_bag_comparitor.py" />

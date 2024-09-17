@@ -8,6 +8,8 @@ import math
 
 class Simulated_Training():
     
+    train_history = 3 # number of previous files included in data 
+    
     def __init__(self):
         pass
     
@@ -64,7 +66,7 @@ class Simulated_Training():
                 self.print_progress(i,len(files))
                 train_files = []
                 test_files = []
-                for j in range(1):
+                for j in range(self.train_history): #edit number of files back
                     if i-j<0:
                         break
                     else:
