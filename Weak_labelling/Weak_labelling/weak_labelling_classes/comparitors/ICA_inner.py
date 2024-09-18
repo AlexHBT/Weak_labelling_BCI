@@ -43,7 +43,7 @@ class ICA_inner_2():
         self.session = f'session {session}'
         self.name = name
     def test_2_classes_all(self, inst1, inst2):
-        comp_method = bci_tvr()
+        comp_method = csp_classifier()
         self.graph = ica_all_graphs().create_dir(self.name, self.session)
         
         bag1 = self.combine_bags(inst1.get_bags()).get_bag()

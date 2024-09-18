@@ -8,7 +8,7 @@ import math
 
 class Simulated_Training():
     
-    train_history = 3 # number of previous files included in data 
+    train_history = 1 # number of previous files included in data 
     
     def __init__(self):
         pass

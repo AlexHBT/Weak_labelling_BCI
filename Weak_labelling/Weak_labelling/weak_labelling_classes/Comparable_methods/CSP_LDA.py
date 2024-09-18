@@ -5,6 +5,8 @@ from ..bag_classes.bag import Bag
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import cross_val_score
+from ..Filters.Bag_filters import Bag_filters
+from ..embedding_models.SSFFT import ssfft
 
 class csp_classifier(object):
     
@@ -16,7 +18,8 @@ class csp_classifier(object):
     def process_and_classify(self, data):
         data = self.check_dtype(data)
             
-        X, y = self.convert_to_ml_data(data)
+        X, y = self.convert_to_ml_data(
+                self.process_data(data))
         
         return self.classify(X,y)
     
@@ -46,6 +49,14 @@ class csp_classifier(object):
         for b in bags:
             new_bag.extend_bag(b.get_bag())
         return new_bag
+    
+    def process_data(self, data):
+        bf = Bag_filters()
+        s = ssfft()
+        for i in range(len(data)):
+            data[i] = s.fft_compress(bf.filter_bag(data[i]))
+            
+        return data
     
     def classify(self, X,y):
         clf = Pipeline([("CSP", CSP(n_components=4, reg=None, log=True, norm_trace=False)), 
