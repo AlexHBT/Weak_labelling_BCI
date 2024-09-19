@@ -28,7 +28,8 @@ class menu():
                 
             case '3':
                 Simulated_trainig.Simulated_Training().start(
-                    'D:/BCI_Official_recordings')
+                    #'D:/BCI_Official_recordings')
+                      'E:/BCI files')
 
             case '4':
                 pass

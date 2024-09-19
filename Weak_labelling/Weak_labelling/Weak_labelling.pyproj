@@ -12,6 +12,7 @@
     <Name>Weak_labelling</Name>
     <RootNamespace>Weak_labelling</RootNamespace>
     <TestFramework>Pytest</TestFramework>
+    <InterpreterId>CondaEnv|CondaEnv|env</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +47,7 @@
     <Compile Include="weak_labelling_classes\embedding_models\__init__.py" />
     <Compile Include="weak_labelling_classes\Filters\Butterworth.py" />
     <Compile Include="weak_labelling_classes\Filters\Bag_filters.py" />
+    <Compile Include="weak_labelling_classes\Filters\outlier.py" />
     <Compile Include="weak_labelling_classes\Filters\__init__.py" />
     <Compile Include="Offline_test.py" />
     <Compile Include="menu.py" />
@@ -76,6 +78,10 @@
     <Folder Include="weak_labelling_classes\Comparable_methods\" />
     <Folder Include="weak_labelling_classes\Metrics\" />
     <Folder Include="weak_labelling_classes\Tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|BCI" />
+    <InterpreterReference Include="CondaEnv|CondaEnv|env" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

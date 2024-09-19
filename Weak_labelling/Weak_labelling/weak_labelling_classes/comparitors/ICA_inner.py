@@ -8,12 +8,18 @@ from ..Filters.Bag_filters import Bag_filters
 from ..embedding_models.SSFFT import ssfft
 from ..embedding_models.PCA import Pca
 from sklearn.svm import SVC
-from ..Comparable_methods.BCI_TVR import bci_tvr
+
 import copy
 from ..Metrics.ICA_metrics import ica_metrics
 from ..Graphing.ICA_all_graphs import ica_all_graphs
 from ..Comparable_methods.EEGnet import eegnet
+
+from ..Filters.outlier import outlier_dection
+
+## comparable method
+from ..Comparable_methods.BCI_TVR import bci_tvr
 from ..Comparable_methods.CSP_LDA import csp_classifier
+
 class ICA_inner_2():
     
     ints_dict = {
@@ -43,7 +49,7 @@ class ICA_inner_2():
         self.session = f'session {session}'
         self.name = name
     def test_2_classes_all(self, inst1, inst2):
-        comp_method = csp_classifier()
+        comp_method = bci_tvr()
         self.graph = ica_all_graphs().create_dir(self.name, self.session)
         
         bag1 = self.combine_bags(inst1.get_bags()).get_bag()
@@ -205,8 +211,14 @@ class ICA_inner_2():
         return np.dot(a, b)/(np.linalg.norm(a)*np.linalg.norm(b))
     
     def get_kept_indexes2(self, bag1, bag2):
+        
         bag1 = self.fft_bag(bag1)
         bag2 = self.fft_bag(bag2)
+        
+        od = outlier_dection()
+        bag1 = od.std_remover(bag1)
+        bag2 = od.std_remover(bag2)
+        
         X, y = self.PCA_data([bag1,bag2])
         bag1, bag2 = self.split_bag_2(X,y)
         self.graph.plot_scatter([bag1, bag2], ['left','right'],means = True)
