@@ -3,18 +3,25 @@ from ..bag_classes.bag import Bag
 from ..Filters.Bag_filters import Bag_filters
 from ..embedding_models.SSFFT import ssfft
 from ..classifiers import SVM
-
+from ..Graphing.ICA_all_graphs import ica_all_graphs
 class bci_tvr(object):
-    dtype = None
     
-    def __init__(self, dtype: str = 'bag'):
+    dtype = None
+    tick = 0
+    
+    def __init__(self,graph, dtype: str = 'bag', ):
         self.dtype = dtype
+        self.graph = graph
         
     def process_and_classify(self, data):
         data = self.check_dtype(data)
-            
-        X, y = self.convert_to_ml_data(
-                self.process_data(data))
+           
+        freq_data =  self.process_data(data)
+        
+        self.plot_freq(freq_data)
+        
+        X, y = self.convert_to_ml_data(freq_data)
+        self.tick +=1
         
         return self.classify(X,y)
         
@@ -60,7 +67,7 @@ class bci_tvr(object):
 
         for i in bag:
             new_values.append(i.flatten())
-        return new_values
+        return new_values 
     
     def stack_flatten(self, bag):
         return self.stack_data(self.flatten_data(bag))
@@ -68,4 +75,10 @@ class bci_tvr(object):
     def classify(self, X,y):
         cl = SVM.SVM()
         return cl.classify_fold_accuracy(X,y)
+        
+    def plot_freq(self, freq_data):
+        if self.tick == 0:
+            self.graph.freq_topoplot(freq_data, 'before')
+        else:
+            self.graph.freq_topoplot(freq_data, 'after')
         

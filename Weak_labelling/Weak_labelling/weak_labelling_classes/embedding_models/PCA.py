@@ -21,3 +21,5 @@ class Pca():
         pca = PCA(ncomps)
         total_data = pca.fit_transform(total_data)
         return total_data, np.concatenate(y)
+    
+    

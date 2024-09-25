@@ -7,6 +7,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.model_selection import cross_val_score
 from ..Filters.Bag_filters import Bag_filters
 from ..embedding_models.SSFFT import ssfft
+from sklearn.svm import SVC
 
 class csp_classifier(object):
     
@@ -60,7 +61,7 @@ class csp_classifier(object):
     
     def classify(self, X,y):
         clf = Pipeline([("CSP", CSP(n_components=4, reg=None, log=True, norm_trace=False)), 
-                        ("LDA", LinearDiscriminantAnalysis())])
+                        ("SVM", SVC(kernel = 'rbf', class_weight='balanced'))])
 
         return np.mean(cross_val_score(clf, X, y,error_score='raise'))
 

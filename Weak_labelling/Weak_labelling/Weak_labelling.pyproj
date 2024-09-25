@@ -12,7 +12,7 @@
     <Name>Weak_labelling</Name>
     <RootNamespace>Weak_labelling</RootNamespace>
     <TestFramework>Pytest</TestFramework>
-    <InterpreterId>CondaEnv|CondaEnv|env</InterpreterId>
+    <InterpreterId>Global|PythonCore|3.11</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,8 +80,7 @@
     <Folder Include="weak_labelling_classes\Tests\" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="CondaEnv|CondaEnv|BCI" />
-    <InterpreterReference Include="CondaEnv|CondaEnv|env" />
+    <InterpreterReference Include="Global|PythonCore|3.11" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
