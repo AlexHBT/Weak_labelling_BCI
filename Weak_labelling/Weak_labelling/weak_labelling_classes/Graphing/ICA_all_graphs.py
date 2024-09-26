@@ -9,8 +9,8 @@ import matplotlib as mpl
 
 class ica_all_graphs(object):
 
-    graph_dir = 'D:/Weak ICA graphs/'
-    #graph_dir = 'E:/Alex/Weak labelling test/Graphs'
+    #graph_dir = 'D:/Weak ICA graphs/'
+    graph_dir = 'E:/Alex/Weak labelling test/Graphs'
     current_dir = None
 
     def __init__(self):

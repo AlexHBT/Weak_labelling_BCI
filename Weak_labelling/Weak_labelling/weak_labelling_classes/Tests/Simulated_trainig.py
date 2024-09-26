@@ -6,6 +6,7 @@ import pandas as pd
 from ..comparitors.ICA_inner import ICA_inner_2
 import math
 
+
 class Simulated_Training():
     
     train_history = 1 # number of previous files included in data 
@@ -16,8 +17,8 @@ class Simulated_Training():
     def start(self, direc):
         participants, names  = self.get_participants(direc)
         
-        output_dir = 'D:/Weak_labelling_results/'
-        #output_dir = 'E:/Alex/Weak labelling test/Results/'
+        #output_dir = 'D:/Weak_labelling_results/'
+        output_dir = 'E:/Alex/Weak labelling test/Results/'
         
         participant_accuracies = []
         

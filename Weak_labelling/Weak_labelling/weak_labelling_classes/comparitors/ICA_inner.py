@@ -21,6 +21,7 @@ from ..Filters.outlier import outlier_dection
 from ..Comparable_methods.BCI_TVR import bci_tvr
 from ..Comparable_methods.CSP_LDA import csp_classifier
 from ..Comparable_methods.EEGnet import eegnet
+from sklearn.preprocessing import normalize
 
 class ICA_inner_2():
     
@@ -79,7 +80,8 @@ class ICA_inner_2():
         return [processed_accuracy, orgin_acc, sep_score, bpl1, bpl2, len(index1), len(index2),dloss]
         
     
-        
+    def normalize_im(self, im):
+        return normalize(np.nan_to_num(im), axis = 1)
 
     def get_comparison_BCI_TVR(self,inst):
         layout = []
@@ -108,12 +110,16 @@ class ICA_inner_2():
     
     
     def compare_values(self,v1,v2):
-        v1 = v1* np.max(v2)
+        #v1 = v1* np.max(v2)
         #v2 = v2/np.linalg.norm(v2)
         #print(v1)
         #print(v2)
-        return np.inner(v1,v2)
+        #return np.inner(v1,v2)
         #return self.cos_sim(v1,v2)
+        return self.signed_inner(v1,v2)
+    
+    def signed_inner(self,example,arr):
+        return np.abs(np.dot(example,arr)) * np.sum(np.multiply(example,arr))
     
     def whitten(self,epoch):
         E, D = np.linalg.eig(np.cov(epoch.T))
@@ -173,8 +179,8 @@ class ICA_inner_2():
     
     def get_components(self,example, instruction, n_comps = 3):
         sources, mix = self.ICA_data(example)
-        Im = np.linalg.inv(mix).real
-        self.save_array(Im)
+        Im = self.normalize_im(np.linalg.inv(mix).real)
+        #self.save_array(Im)
         values = []
         perfect_example = self.get_comparison_BCI_TVR(instruction)
 
