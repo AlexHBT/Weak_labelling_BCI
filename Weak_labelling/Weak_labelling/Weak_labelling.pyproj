@@ -39,6 +39,7 @@
     <Compile Include="weak_labelling_classes\comparitors\ICA_inner_product.py" />
     <Compile Include="weak_labelling_classes\comparitors\SSFFT_mean_bag.py" />
     <Compile Include="weak_labelling_classes\comparitors\__init__.py" />
+    <Compile Include="weak_labelling_classes\data_loaders\BCI_comp_loader.py" />
     <Compile Include="weak_labelling_classes\embedding_models\unembedded.py" />
     <Compile Include="weak_labelling_classes\embedding_models\PCA.py" />
     <Compile Include="weak_labelling_classes\embedding_models\Flatten_data.py" />

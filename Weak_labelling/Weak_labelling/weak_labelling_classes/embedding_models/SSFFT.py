@@ -33,7 +33,7 @@ class ssfft(object):
         for i in bag:
             temp = []
             for j in range(i.shape[1]):
-                temp.append(np.mean(i[:,j].reshape(2,-1, order = 'f'), axis = 0)[4:8])
+                temp.append(np.mean(i[:-1,j].reshape(2,-1, order = 'f'), axis = 0)[4:8])
             new_values.append(np.stack(temp, axis = 1))
         #print(new_values[0].shape)
         return new_values

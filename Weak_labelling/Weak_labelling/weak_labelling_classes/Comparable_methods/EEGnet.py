@@ -47,7 +47,7 @@ class eegnet():
         D = 1
         F2 = F1*D
         model = tf.keras.Sequential([
-                tf.keras.layers.Input(shape = (16,512,1)),
+                tf.keras.layers.Input(shape = (16,250,1)),
                 #tf.keras.layers.Reshape((1,16,750)),
                 tf.keras.layers.Conv2D(F1,(1,64),activation = 'linear', padding='same'),
                 tf.keras.layers.BatchNormalization(),

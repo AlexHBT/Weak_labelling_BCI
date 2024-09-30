@@ -41,45 +41,33 @@ class Simulated_Training():
             
     
     def get_participants(self, direct):
-        participants = []
+        
+        participants = self.get_files(direct)
+                    
         participants_names = []
-        for i in next(os.walk(direct))[1]:
-            participants_names.append(i)
-            participants.append(os.path.join(
-                os.path.abspath(direct),i))
+
+        for i in participants:
+            participants_names.append(os.path.splitext( os.path.basename(i))[0])
             
         return participants, participants_names
         
     
-    def test_participant(self, participant_dir, part_name):
+    def test_participant(self, participant_file, part_name):
+        self.print_progress(0,1)
         
         pt = participant_test()
         
-        files = self.get_files(participant_dir)
-        
-        train_files = []
-        test_files = []
-        
         accuracies = []
-        #for i in range(len(files)-1):
-        for i in range(len(files)):
                 
-            try:
-                self.print_progress(i,len(files))
-                train_files = []
-                test_files = []
-                for j in range(self.train_history): #edit number of files back
-                    if i-j<0:
-                        break
-                    else:
-                        train_files.append(files[i-j])
-                #test_files.append(files[i+1])
+        #try:
             
-                accuracies.append(pt.start_2(train_files,part_name, i+1))
+            
+        accuracies.append(pt.start_2([participant_file],part_name, 1))
                 
-            except:
-                print(f'\n ({i}/{len(files)}) Failed to get results')
-        self.print_progress(len(files),len(files))
+        #except:
+            #print('Failed to get results')
+        
+        self.print_progress(1,1)
         return accuracies
         
     def run_test(self, train_files, test_files):
@@ -96,12 +84,12 @@ class Simulated_Training():
         
             
         for f in data[2]:
-            if 'test' in f and '.csv' in f:
+            if 'T' in f and '.gdf' in f:
                 files.append(os.path.join(os.path.abspath(data[0]),f))
                     
-        for d in data[1]:
-            files.extend(self.get_files(
-                os.path.join(os.path.abspath(data[0]),d)))
+        #for d in data[1]:
+            #files.extend(self.get_files(
+                #os.path.join(os.path.abspath(data[0]),d)))
                 
         return files
                 

@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from ..data_loaders.CSV_loader import CSV_loader
-
+from ..data_loaders.BCI_comp_loader import bci_comp_loader
 
 from ..Filters.Butterworth import butterworth
 from ..embedding_models.SSFFT import ssfft
@@ -26,44 +26,23 @@ class participant_test(object):
     instructions = None
     test_instructions = None
     
-    def start(self, train_files, test_files):
-        
-        self.instructions = self.load_file_data(train_files)
-        self.instructions = self.instructions[1:]
-        self.instructions.pop(2)
-        #self.test_instructions = self.load_file_data(train_files)[1:]
-        pre_counts = self.count_instructions()
-        print('Loaded instructions')
-        #self.filter_pipe_line()
-        #self.print_lengths()
-        counts = self.compare()
-        self.filter_pipe_line()
-        self.post_process()
-        accuracy = self.classify_data()
-
-        test_acc = self.classify_test_data()
-        
-        data = [accuracy, test_acc]
-        data.extend(counts)
-        data.extend(pre_counts) 
-        return data
         
     def start_2(self, train_files, name:str, session:int):
         
         self.instructions = self.load_file_data(train_files)
-        self.instructions = self.instructions[1:]
+        #self.instructions = self.instructions[1:]
         self.instructions.pop(2)
         
         test = ICA_inner_2(session,name)
         return test.test_2_classes_all(self.instructions[0],self.instructions[1])
         
     def load_file_data(self, files):
-        csvl = CSV_loader()
+        BCIcl = bci_comp_loader()
         
         instruction_sets = []
         
         for f in files:
-            instruction_sets.append(csvl.load_bag_CSV(f))
+            instruction_sets.append(BCIcl.load_data_bag(f))
             
         instructions = instruction_sets[0]
         instruction_sets.pop(0)
@@ -75,22 +54,11 @@ class participant_test(object):
                     if j.get_name() == a.get_name():
                         a.add_bags(j.get_bags())
                         
-            
-            
                 
         return instructions
     
             
-    def filter_pipe_line(self):
-        b = butterworth()
-        s = ssfft()
-        pipeline = [b.filter_signal]
-        
-        for i in self.instructions:
-            for p in pipeline:
-                #print(f'Filtering {i.get_name()}')
-                i.parse_callable(p)
-            #print('debug') 
+
     
     
     
