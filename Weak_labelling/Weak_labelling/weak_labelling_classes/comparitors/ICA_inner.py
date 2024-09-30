@@ -40,6 +40,9 @@ class ICA_inner_2():
     
     graph = None
     
+    comps = None
+    comp_treshold = 0.0
+    
     def get_data_columns(self):
         return ['Method accuracy','Without method accuracy',
                 'seperation_score', 
@@ -51,6 +54,9 @@ class ICA_inner_2():
     def __init__(self, session, name):
         self.session = f'session {session}'
         self.name = name
+        
+        self.comps = []
+        
     def test_2_classes_all(self, inst1, inst2):
         
         self.graph = ica_all_graphs().create_dir(self.name, self.session)
@@ -68,6 +74,9 @@ class ICA_inner_2():
         comps1 = self.convert_bag(filt_bag1,self.ints_dict[inst1.get_name().lower()])
         comps2 = self.convert_bag(filt_bag2,self.ints_dict[inst2.get_name().lower()])
         
+        
+        
+        
         index1, index2, sep_score = self.get_kept_indexes2(comps1,comps2)
         bpl1 = len(bag1)
         bpl2 = len(bag2)
@@ -77,6 +86,7 @@ class ICA_inner_2():
         self.plot_csp_patterns([bag1, bag2], 'after')  
         processed_accuracy = comp_method.process_and_classify([bag1, bag2])
         dloss = self.get_dloss([bpl1, bpl2], [len(index1), len(index2)])
+        self.plot_similarit_graphs()
         return [processed_accuracy, orgin_acc, sep_score, bpl1, bpl2, len(index1), len(index2),dloss]
         
     
@@ -178,9 +188,11 @@ class ICA_inner_2():
         return bag_1, bag_2
     
     def get_components(self,example, instruction, n_comps = 3):
+       
         sources, mix = self.ICA_data(example)
         Im = self.normalize_im(np.linalg.inv(mix).real)
-        #self.save_array(Im)
+        
+        
         values = []
         perfect_example = self.get_comparison_BCI_TVR(instruction)
 
@@ -202,11 +214,14 @@ class ICA_inner_2():
         #plots the main value
         #plot_comps(Im[:,max_indexes],instruction)
     
-        comps = example[:, max_indexes]
+        comps = sources.real[:, max_indexes]
+        self.save_array(Im[:,max_indexes])
+        self.comps[-1].extend(self.split_array(Im[:,max_indexes],axis = 1))
+        
         return comps
     
     def convert_bag(self,bag:[np.ndarray], inst):
-        
+        self.comps.append([])
         new_comps = []
         for i in bag:
             new_comps.append(self.get_components(i, inst))
@@ -247,6 +262,9 @@ class ICA_inner_2():
         bag1, bag2 = self.split_bag_2(X,y)
         #self.graph.plot_scatter([bag1, bag2], ['left','right'],means = True)
 
+        #bag1 = self.flatten_data(bag1)
+        #bag2 = self.flatten_data(bag2)
+
         m1 = self.get_bag_mean(bag1)
         m2 = self.get_bag_mean(bag2)
         sep1 = self.get_sep(m1,m2)
@@ -265,7 +283,7 @@ class ICA_inner_2():
         indexes = []
         count = 0
         for i in bag:
-            if self.cos_sim(sep, i) > 0: # Threshold value
+            if self.cos_sim(sep, i) > self.comp_treshold: # Threshold value
                 kept_values.append(i)
                 indexes.append(count)
             count+= 1
@@ -318,4 +336,17 @@ class ICA_inner_2():
         else:
             np.save(file, inverse_mix.T)
             
-    
+
+    def plot_similarit_graphs(self, inst_names = None):
+        inst_names = ['left','right']
+        for i in range(len(self.comps)):
+            self.graph.plot_3D_mean(self.comps[i], inst_names[i])
+            self.graph.plot_top_n(self.comps[i],10,inst_names[i])
+            
+    def split_array(self, arr: np.ndarray, axis:int ):
+        s = np.split(arr, arr.shape[axis], axis = axis)
+        
+        for i in range(len(s)):
+            s[i] = np.squeeze(s[i])
+            
+        return s

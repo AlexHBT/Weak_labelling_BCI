@@ -17,8 +17,8 @@ class Simulated_Training():
     def start(self, direc):
         participants, names  = self.get_participants(direc)
         
-        #output_dir = 'D:/Weak_labelling_results/'
-        output_dir = 'E:/Alex/Weak labelling test/Results/'
+        output_dir = 'D:/Weak_labelling_results/'
+        #output_dir = 'E:/Alex/Weak labelling test/Results/'
         
         participant_accuracies = []
         

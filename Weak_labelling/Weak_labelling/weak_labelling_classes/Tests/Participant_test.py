@@ -30,7 +30,7 @@ class participant_test(object):
         
         self.instructions = self.load_file_data(train_files)
         self.instructions = self.instructions[1:]
-        self.instructions.pop(1)
+        self.instructions.pop(2)
         #self.test_instructions = self.load_file_data(train_files)[1:]
         pre_counts = self.count_instructions()
         print('Loaded instructions')
