@@ -41,7 +41,7 @@ class ICA_inner_2():
     graph = None
     
     comps = None
-    comp_treshold = 0.0
+    comp_treshold = 0.5
     
     def get_data_columns(self):
         return ['Method accuracy','Without method accuracy',
@@ -60,8 +60,10 @@ class ICA_inner_2():
     def test_2_classes_all(self, inst1, inst2):
         
         self.graph = ica_all_graphs().create_dir(self.name, self.session)
-        comp_method = eegnet() #self.graph
+        #comp_method = eegnet() #self.graph
+        #comp_method = bci_tvr(self.graph)
         
+        comp_method = csp_classifier()
         bag1 = self.combine_bags(inst1.get_bags()).get_bag()
         bag2 = self.combine_bags(inst2.get_bags()).get_bag()
        
@@ -88,7 +90,7 @@ class ICA_inner_2():
         processed_accuracy = comp_method.process_and_classify([bag1, bag2])
         dloss = self.get_dloss([bpl1, bpl2], [len(index1), len(index2)])
         self.plot_similarit_graphs()
-        print(processed_accuracy)
+        #print(processed_accuracy)
         #print(f'values removed {len(index1) + len(index2)}/{bpl1+bpl2}')
         return [processed_accuracy, orgin_acc, sep_score, bpl1, bpl2, len(index1), len(index2),dloss]
         
@@ -329,8 +331,8 @@ class ICA_inner_2():
         self.graph.plot_csp_filters(bags, title)
         
     def save_array(self,inverse_mix):
-        file = 'D:/Weak ICA components/BCi_comp_arrays.npy'
-            
+        #file = 'D:/Weak ICA components/BCI_comp_arrays.npy'
+        file = 'E:/Alex/ica_arrays/BCI_comp_arrays.npy'
         if os.path.isfile(file):
             arr = np.load(file)
             arr = np.concatenate((arr,inverse_mix.T), axis = 0)

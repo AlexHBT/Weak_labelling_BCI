@@ -28,8 +28,8 @@ class menu():
                 
             case '3':
                 Simulated_trainig.Simulated_Training().start(
-                    'D:\BCI comp data set 2a')
-                      #'E:/BCI files')
+                    #'D:\BCI comp data set 2a')
+                      'E:/BCI_comp2a/')
 
             case '4':
                 pass

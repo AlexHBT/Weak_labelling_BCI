@@ -21,7 +21,7 @@ class bci_comp_loader():
         eeg_channels = ['EEG-Fz', 'EEG-0', 'EEG-1','EEG-2','EEG-3','EEG-4', 'EEG-C3','EEG-6',	'EEG-Cz',	'EEG-7',	'EEG-C4', 'EEG-9',	'EEG-10',	'EEG-11',	'EEG-12',	'EEG-13']
         
 
-        data = mne.io.read_raw_gdf('D:/BCI comp data set 2a/A01T.gdf')
+        data = mne.io.read_raw_gdf(path)
         data_df = data.to_data_frame()[eeg_channels]
         
        

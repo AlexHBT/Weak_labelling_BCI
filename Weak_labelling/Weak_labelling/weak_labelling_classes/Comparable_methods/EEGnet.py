@@ -43,8 +43,8 @@ class eegnet():
         
 
 
-        F1 = 2
-        D = 1
+        F1 = 6
+        D = 6
         F2 = F1*D
         model = tf.keras.Sequential([
                 tf.keras.layers.Input(shape = (16,250,1)),
