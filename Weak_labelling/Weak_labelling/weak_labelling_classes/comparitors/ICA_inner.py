@@ -216,6 +216,7 @@ class ICA_inner_2():
     
         comps = sources.real[:, max_indexes]
         self.save_array(Im[:,max_indexes])
+        self.save_array_inst(Im[:,max_indexes], instruction)
         self.comps[-1].extend(self.split_array(Im[:,max_indexes],axis = 1))
         
         return comps
@@ -336,6 +337,17 @@ class ICA_inner_2():
         else:
             np.save(file, inverse_mix.T)
             
+    def save_array_inst(self,inverse_mix,inst):
+        file = f'D:/Weak ICA components/{str(inst)}_comp_arrays.npy'
+            
+        if os.path.isfile(file):
+            arr = np.load(file)
+            arr = np.concatenate((arr,inverse_mix.T), axis = 0)
+            np.save(file, arr)
+            
+        else:
+            np.save(file, inverse_mix.T)
+            
 
     def plot_similarit_graphs(self, inst_names = None):
         inst_names = ['left','right']
@@ -350,3 +362,5 @@ class ICA_inner_2():
             s[i] = np.squeeze(s[i])
             
         return s
+    
+    
