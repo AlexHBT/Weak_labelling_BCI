@@ -20,6 +20,8 @@ class bci_tvr(object):
         
         self.plot_freq(freq_data)
         
+        self.select_channels_instruction(freq_data)
+        
         X, y = self.convert_to_ml_data(freq_data)
         self.tick +=1
         
@@ -47,6 +49,15 @@ class bci_tvr(object):
         for i in range(len(data)):
             data[i] = s.fft_compress(bf.filter_bag(data[i]))
             
+        return data
+    
+    def select_channels_instruction(self, inst):
+        for i in range(len(inst)):
+            inst[i] = self.select_channels(inst[i])
+    
+    def select_channels(self, data):
+        for i in range(len(data)):
+            data[i] = data[i][:,6:11]
         return data
 
     def convert_to_ml_data(self,bags):

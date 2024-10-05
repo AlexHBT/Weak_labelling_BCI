@@ -9,11 +9,14 @@ from ..Filters.Bag_filters import Bag_filters
 from ..embedding_models.SSFFT import ssfft
 from ..embedding_models.PCA import Pca
 from sklearn.svm import SVC
+from sklearn.preprocessing import normalize
+from sklearn.ensemble import IsolationForest
+
 
 import copy
 from ..Metrics.ICA_metrics import ica_metrics
 from ..Graphing.ICA_all_graphs import ica_all_graphs
-
+from .ICA_Inner_measures import sim_measures
 
 from ..Filters.outlier import outlier_dection
 
@@ -21,7 +24,7 @@ from ..Filters.outlier import outlier_dection
 from ..Comparable_methods.BCI_TVR import bci_tvr
 from ..Comparable_methods.CSP_LDA import csp_classifier
 from ..Comparable_methods.EEGnet import eegnet
-from sklearn.preprocessing import normalize
+
 
 class ICA_inner_2():
     
@@ -41,7 +44,7 @@ class ICA_inner_2():
     graph = None
     
     comps = None
-    comp_treshold = 0.0
+    comp_treshold = 0.5
     
     def get_data_columns(self):
         return ['Method accuracy','Without method accuracy',
@@ -60,7 +63,8 @@ class ICA_inner_2():
     def test_2_classes_all(self, inst1, inst2):
         
         self.graph = ica_all_graphs().create_dir(self.name, self.session)
-        comp_method = bci_tvr(self.graph)
+        #comp_method = bci_tvr(self.graph)
+        comp_method = csp_classifier()
         
         bag1 = self.combine_bags(inst1.get_bags()).get_bag()
         bag2 = self.combine_bags(inst2.get_bags()).get_bag()
@@ -91,26 +95,26 @@ class ICA_inner_2():
         
     
     def normalize_im(self, im):
-        return normalize(np.nan_to_num(im), axis = 1)
-
+        #return normalize(np.nan_to_num(im), axis = 1)
+        return im
     def get_comparison_BCI_TVR(self,inst):
         layout = []
         if inst == 1:
             layout = [[0,0,0,0,0],
-                      [0,0,0,1,0],
+                      [0,0,0,1-0.2,0],
                       [0,0,0,0,0]]
 
         elif inst == 3:
             layout = [[0,0,0,0,0],
-                      [0,0,1,0,0],
+                      [0,0,1-0.2,0,0],
                       [0,0,0,0,0]]
 
         elif inst == 2:
             layout = [[0,0,0,0,0],
-                      [0,1,0,0,0],
+                      [0,1-0.2,0,0,0],
                       [0,0,0,0,0]]
 
-        return np.concatenate(([0], np.array(layout).flatten())) 
+        return np.concatenate(([0], np.array(layout).flatten()))+0.2 
         #return self.get_comparison_rand(inst)
     
     def get_comparison_rand(self, inst):
@@ -120,16 +124,15 @@ class ICA_inner_2():
     
     
     def compare_values(self,v1,v2):
+            
+        sm = sim_measures() 
         #v1 = v1* np.max(v2)
         #v2 = v2/np.linalg.norm(v2)
         #print(v1)
         #print(v2)
         #return np.inner(v1,v2)
         #return self.cos_sim(v1,v2)
-        return self.signed_inner(v1,v2)
-    
-    def signed_inner(self,example,arr):
-        return np.abs(np.dot(example,arr)) * np.sum(np.multiply(example,arr))
+        return sm.cos_sim(v1,v2)
     
     def whitten(self,epoch):
         E, D = np.linalg.eig(np.cov(epoch.T))
@@ -251,12 +254,15 @@ class ICA_inner_2():
     
     def get_kept_indexes2(self, bag1, bag2):
         
-        bag1 = self.fft_bag(bag1)
-        bag2 = self.fft_bag(bag2)
+        bag1 = self.flatten_data(self.fft_bag(bag1))
+        bag2 = self.flatten_data(self.fft_bag(bag2))
         
-        #od = outlier_dection()
+        od = outlier_dection()
         #bag1 = od.std_remover(bag1)
         #bag2 = od.std_remover(bag2)
+
+        bag1 = od.Isolation_forrest(bag1)
+        bag2 = od.Isolation_forrest(bag2)
         
         X, y = self.PCA_data([bag1,bag2])
         #X,y = self.convert_to_ml_data([bag1,bag2])
@@ -342,11 +348,11 @@ class ICA_inner_2():
             
         if os.path.isfile(file):
             arr = np.load(file)
-            arr = np.concatenate((arr,inverse_mix.T), axis = 0)
+            arr = np.concatenate((arr,inverse_mix.T[0,:][np.newaxis,...]), axis = 0)
             np.save(file, arr)
             
         else:
-            np.save(file, inverse_mix.T)
+            np.save(file, inverse_mix.T[0,:][np.newaxis,...])
             
 
     def plot_similarit_graphs(self, inst_names = None):
@@ -363,4 +369,14 @@ class ICA_inner_2():
             
         return s
     
-    
+    def anomally_remove(self, bag):
+        b = np.stack(bag,axis = 0)
+        anoms = IsolationForest().fit_predict(b).tolist()
+        
+        new_bag = []
+        for i in range(len(anoms)):
+            if anoms[i] == 1:
+                new_bag.append(bag[i])
+                
+        return new_bag
+            

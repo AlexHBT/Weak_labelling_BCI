@@ -1,5 +1,6 @@
 import sklearn as sk
 import numpy as np
+from sklearn.ensemble import IsolationForest
 
 class outlier_dection():
     def __init__(self):
@@ -94,6 +95,17 @@ class outlier_dection():
         return vals
             
             
+    def Isolation_forrest(self, bag):
+        b = np.stack(bag,axis = 0)
+        
+        anoms = IsolationForest().fit_predict(b).tolist()
+        
+        new_bag = []
+        for i in range(len(anoms)):
+            if anoms[i] == 1:
+                new_bag.append(bag[i])
+                
+        return new_bag
             
              
             

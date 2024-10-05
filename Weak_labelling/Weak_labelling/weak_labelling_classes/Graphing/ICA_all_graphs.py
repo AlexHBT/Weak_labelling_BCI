@@ -176,6 +176,8 @@ class ica_all_graphs(object):
         X, Y = np.meshgrid(x,y)
 
         ax.plot_surface(X, Y, arr, ccount = 50,cmap = cm.viridis, antialiased = True)
+        ax.set_xticks(np.arange(5), ['3','1','Z','2','4'])
+        ax.set_yticks(np.arange(3), ['FC','C', 'CP'])
         
     def plot_top_n(self, comp_topo_array, n, inst):
         
