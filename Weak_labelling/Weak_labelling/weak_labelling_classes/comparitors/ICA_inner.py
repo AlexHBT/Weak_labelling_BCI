@@ -60,35 +60,35 @@ class ICA_inner_2():
         
         self.comps = []
         
-    def test_2_classes_all(self, bag1, bag2):
+    def test_2_classes_all(self, inst1, inst2):
         
         self.graph = ica_all_graphs().create_dir(self.name, self.session)
         #comp_method = bci_tvr(self.graph)
         comp_method = csp_classifier()
         
-        pos_bag = self.combine_bags(bag1.get_bags()).get_bag()
-        neg_bag = self.combine_bags(bag2.get_bags()).get_bag()
+        bag1 = self.combine_bags(inst1.get_bags()).get_bag()
+        bag2 = self.combine_bags(inst2.get_bags()).get_bag()
        
-        orgin_acc = comp_method.process_and_classify([pos_bag, neg_bag])
+        orgin_acc = comp_method.process_and_classify([bag1, bag2])
 
-        self.plot_csp_patterns([pos_bag, neg_bag], 'standard')        
+        self.plot_csp_patterns([bag1, bag2], 'standard')        
 
-        filt_pos_bag = self.filter_bag(pos_bag)
-        filt_neg_bag = self.filter_bag(neg_bag)
-        comps1 = self.convert_bag(filt_pos_bag,self.ints_dict[pos_inst.get_name().lower()])
-        comps2 = self.convert_bag(filt_neg_bag,self.ints_dict[pos_inst.get_name().lower()])
+        filt_bag1 = self.filter_bag(bag1)
+        filt_bag2 = self.filter_bag(bag2)
+        comps1 = self.convert_bag(filt_bag1,self.ints_dict[inst1.get_name().lower()])
+        comps2 = self.convert_bag(filt_bag2,self.ints_dict[inst2.get_name().lower()])
         
         
         
         
         index1, index2, sep_score = self.get_kept_indexes2(comps1,comps2)
-        bpl1 = len(pos_bag)
-        bpl2 = len(neg_bag)
-        pos_bag = self.retrive_index_data(pos_bag, index1)
-        neg_bag = self.retrive_index_data(neg_bag, index2)
-        #self.graph.plot_scatter([pos_bag, neg_bag], ['left','right'])
-        self.plot_csp_patterns([pos_bag, neg_bag], 'after')  
-        processed_accuracy = comp_method.process_and_classify([pos_bag, neg_bag])
+        bpl1 = len(bag1)
+        bpl2 = len(bag2)
+        bag1 = self.retrive_index_data(bag1, index1)
+        bag2 = self.retrive_index_data(bag2, index2)
+        #self.graph.plot_scatter([bag1, bag2], ['left','right'])
+        self.plot_csp_patterns([bag1, bag2], 'after')  
+        processed_accuracy = comp_method.process_and_classify([bag1, bag2])
         dloss = self.get_dloss([bpl1, bpl2], [len(index1), len(index2)])
         self.plot_similarit_graphs()
         return [processed_accuracy, orgin_acc, sep_score, bpl1, bpl2, len(index1), len(index2),dloss]
@@ -218,7 +218,7 @@ class ICA_inner_2():
         #plot_comps(Im[:,max_indexes],instruction)
     
         comps = sources.real[:, max_indexes]
-        self.save_array(Im)
+        self.save_array(Im[:,max_indexes])
         self.save_array_inst(Im[:,max_indexes], instruction)
         self.comps[-1].extend(self.split_array(Im[:,max_indexes],axis = 1))
         
@@ -252,34 +252,34 @@ class ICA_inner_2():
     def cos_sim(self,a,b):
         return np.dot(a, b)/(np.linalg.norm(a)*np.linalg.norm(b))
     
-    def get_kept_indexes2(self, pos_bag, neg_bag):
+    def get_kept_indexes2(self, bag1, bag2):
         
-        pos_bag = self.flatten_data(self.fft_bag(pos_bag))
-        neg_bag = self.flatten_data(self.fft_bag(neg_bag))
+        bag1 = self.flatten_data(self.fft_bag(bag1))
+        bag2 = self.flatten_data(self.fft_bag(bag2))
         
         od = outlier_dection()
-        #pos_bag = od.std_remover(pos_bag)
-        #neg_bag = od.std_remover(neg_bag)
+        #bag1 = od.std_remover(bag1)
+        #bag2 = od.std_remover(bag2)
 
-        pos_bag = od.Isolation_forrest(pos_bag)
-        neg_bag = od.Isolation_forrest(neg_bag)
+        bag1 = od.Isolation_forrest(bag1)
+        bag2 = od.Isolation_forrest(bag2)
         
-        X, y = self.PCA_data([pos_bag,neg_bag])
-        #X,y = self.convert_to_ml_data([pos_bag,neg_bag])
-        pos_bag, neg_bag = self.split_bag_2(X,y)
-        #self.graph.plot_scatter([pos_bag, neg_bag], ['left','right'],means = True)
+        X, y = self.PCA_data([bag1,bag2])
+        #X,y = self.convert_to_ml_data([bag1,bag2])
+        bag1, bag2 = self.split_bag_2(X,y)
+        #self.graph.plot_scatter([bag1, bag2], ['left','right'],means = True)
 
-        #pos_bag = self.flatten_data(pos_bag)
-        #neg_bag = self.flatten_data(neg_bag)
+        #bag1 = self.flatten_data(bag1)
+        #bag2 = self.flatten_data(bag2)
 
-        m1 = self.get_bag_mean(pos_bag)
-        m2 = self.get_bag_mean(neg_bag)
+        m1 = self.get_bag_mean(bag1)
+        m2 = self.get_bag_mean(bag2)
         sep1 = self.get_sep(m1,m2)
         sep2 = self.get_sep(m2,m1)
-        pos_bag, index1 = self.calc_kept_values(sep1, pos_bag)
-        neg_bag, index2 = self.calc_kept_values(sep2, neg_bag)
-        #self.graph.plot_scatter([pos_bag, neg_bag], ['left','right'],means = False)
-        sep_score = self.test_seperation([pos_bag,neg_bag])
+        bag1, index1 = self.calc_kept_values(sep1, bag1)
+        bag2, index2 = self.calc_kept_values(sep2, bag2)
+        #self.graph.plot_scatter([bag1, bag2], ['left','right'],means = False)
+        sep_score = self.test_seperation([bag1,bag2])
         return index1, index2, sep_score
 
     def get_sep(self, pos, neg):
