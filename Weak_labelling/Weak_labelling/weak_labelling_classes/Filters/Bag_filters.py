@@ -67,3 +67,12 @@ class Bag_filters():
             new_bag.append(self.butterworth(self.small_lapalcian(x)))
         return new_bag
     
+    def broad_butter(self, epoch):
+        b,a = sci.signal.butter(4, [2,60], btype = 'bandpass', fs = 512)
+        return sci.signal.filtfilt(b,a,epoch, axis = 0)
+        
+    def broad_bag(self, bag):
+        new_bag = []
+        for x in bag:
+            new_bag.append(self.broad_butter(x))
+        return new_bag

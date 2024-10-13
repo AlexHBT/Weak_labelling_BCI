@@ -33,6 +33,7 @@
     <Compile Include="weak_labelling_classes\Comparable_methods\CSP_LDA.py" />
     <Compile Include="weak_labelling_classes\Comparable_methods\EEGnet.py" />
     <Compile Include="weak_labelling_classes\Comparable_methods\__init__.py" />
+    <Compile Include="weak_labelling_classes\comparitors\ICA_inner_diverse_density.py" />
     <Compile Include="weak_labelling_classes\comparitors\ICA_inner.py" />
     <Compile Include="weak_labelling_classes\comparitors\Mean_bag_comparitor.py" />
     <Compile Include="weak_labelling_classes\comparitors\CPS_mean_bag.py" />
@@ -59,6 +60,7 @@
     <Compile Include="weak_labelling_classes\Graphing\ICA_all_graphs.py" />
     <Compile Include="weak_labelling_classes\Graphing\Data_set_scatter.py" />
     <Compile Include="weak_labelling_classes\Graphing\__init__.py" />
+    <Compile Include="weak_labelling_classes\Metrics\Diverse_Density.py" />
     <Compile Include="weak_labelling_classes\Metrics\ICA_metrics.py" />
     <Compile Include="weak_labelling_classes\Metrics\__init__.py" />
     <Compile Include="weak_labelling_classes\Tests\Participant_test.py" />

@@ -1,3 +1,4 @@
+
 import os
 import graphlib
 import numpy as np
@@ -26,7 +27,7 @@ from ..Comparable_methods.CSP_LDA import csp_classifier
 from ..Comparable_methods.EEGnet import eegnet
 
 
-class ICA_inner_2():
+class ICA_inner_diverse_desnity():
     
     ints_dict = {
         '1': 'left',
@@ -399,3 +400,8 @@ class ICA_inner_2():
         X,y = self.PCA_data(bags,2)
         pos_bag, neg_bag = self.split_bag_2(X,y)
         self.graph.plot_scatter([pos_bag,neg_bag], class_names, means = means, name = name)
+
+
+    def calculate_diverse_density(self, positive_bags):
+        
+

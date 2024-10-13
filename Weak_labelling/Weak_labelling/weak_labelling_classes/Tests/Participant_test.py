@@ -26,33 +26,13 @@ class participant_test(object):
     instructions = None
     test_instructions = None
     
-    def start(self, train_files, test_files):
-        
-        self.instructions = self.load_file_data(train_files)
-        self.instructions = self.instructions[1:]
-        self.instructions.pop(2)
-        #self.test_instructions = self.load_file_data(train_files)[1:]
-        pre_counts = self.count_instructions()
-        print('Loaded instructions')
-        #self.filter_pipe_line()
-        #self.print_lengths()
-        counts = self.compare()
-        self.filter_pipe_line()
-        self.post_process()
-        accuracy = self.classify_data()
-
-        test_acc = self.classify_test_data()
-        
-        data = [accuracy, test_acc]
-        data.extend(counts)
-        data.extend(pre_counts) 
-        return data
+    
         
     def start_2(self, train_files, name:str, session:int):
         
         self.instructions = self.load_file_data(train_files)
         self.instructions = self.instructions[1:]
-        self.instructions.pop(2)
+        self.instructions.pop(1)
         
         test = ICA_inner_2(session,name)
         return test.test_2_classes_all(self.instructions[0],self.instructions[1])

@@ -24,8 +24,10 @@ class ica_all_graphs(object):
             os.makedirs(dir_path,exist_ok=True)
         self.current_dir = os.path.abspath(dir_path)
         return self
+    
+    
         
-    def plot_scatter_std(self, bags, labels = None):
+    def plot_scatter_std(self, bags, labels = None, name = ''):
         fig = plt.figure(figsize=(10,10))
         ax = fig.subplots(1)
         plots = []
@@ -37,11 +39,11 @@ class ica_all_graphs(object):
             ax.legend(plots,labels)
             ax.set_title(f"{','.join(labels)} scatter plot")
             
-        fig.savefig(os.path.join(self.current_dir, 'scatter_plot.png'))
-        pickle.dump(fig, open(os.path.join(self.current_dir,'scatter_plot.fig.pickle'), 'wb'))
+        fig.savefig(os.path.join(self.current_dir, f'{name}scatter_plot.png'))
+        pickle.dump(fig, open(os.path.join(self.current_dir,f'{name}scatter_plot.fig.pickle'), 'wb'))
         plt.close()    
         
-    def plot_scatter_with_mean(self, bags, labels = None):
+    def plot_scatter_with_mean(self, bags, labels = None, name = ''):
         fig = plt.figure(figsize=(10,10))
         ax = fig.subplots(1)
                 
@@ -60,15 +62,15 @@ class ica_all_graphs(object):
             ax.legend(plots,labels)
             #ax.set_title(f"{','.join(labels)} scatter plot")
 
-        fig.savefig(os.path.join(self.current_dir, 'mean_scatter_plot.png'))
-        pickle.dump(fig, open(os.path.join(self.current_dir,'mean_scatter_plot.fig.pickle'), 'wb'))
+        fig.savefig(os.path.join(self.current_dir, f'{name}mean_scatter_plot.png'))
+        pickle.dump(fig, open(os.path.join(self.current_dir,f'{name}mean_scatter_plot.fig.pickle'), 'wb'))
         plt.close()
 
-    def plot_scatter(self, bags, labels = None, means = False):
+    def plot_scatter(self, bags, labels = None, means = False, name = ''):
         if means:
-            self.plot_scatter_with_mean(bags, labels)
+            self.plot_scatter_with_mean(bags, labels, name)
         else:
-            self.plot_scatter_std(bags, labels)
+            self.plot_scatter_std(bags, labels, name)
 
         
         
@@ -249,3 +251,5 @@ class ica_all_graphs(object):
     def compare_comps(self,example,arr):
         #return np.abs(np.dot(example,arr)) * np.sum(np.multiply(example,arr))
         return np.dot(example, arr)/(np.linalg.norm(example)*np.linalg.norm(arr))
+    
+    
