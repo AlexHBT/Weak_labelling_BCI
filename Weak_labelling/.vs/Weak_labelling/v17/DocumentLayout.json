@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|solutionrelative:Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\comparitors\\ICA_inner_diverse_density.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|solutionrelative:Weak_labelling\\weak_labelling_classes\\comparitors\\ICA_inner_diverse_density.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\menu.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|solutionrelative:Weak_labelling\\menu.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Graphing\\ICA_all_graphs.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|solutionrelative:Weak_labelling\\weak_labelling_classes\\Graphing\\ICA_all_graphs.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -13,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\comparitors\\ICA_inner.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|solutionrelative:Weak_labelling\\weak_labelling_classes\\comparitors\\ICA_inner.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\menu.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|solutionrelative:Weak_labelling\\menu.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Graphing\\Data_set_scatter.py||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -83,10 +91,6 @@
       "RelativeMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|solutionrelative:Weak_labelling\\weak_labelling_classes\\data_loaders\\CSV_loader.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|solutionrelative:Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\embedding_models\\Flatten_data.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{3E69D2A7-962C-407E-BE0E-FD773794E171}|Weak_labelling\\Weak_labelling.pyproj|solutionrelative:Weak_labelling\\weak_labelling_classes\\embedding_models\\Flatten_data.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -130,24 +134,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "outlier.py",
-              "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Filters\\outlier.py",
-              "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Filters\\outlier.py",
-              "ToolTip": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Filters\\outlier.py",
-              "RelativeToolTip": "Weak_labelling\\weak_labelling_classes\\Filters\\outlier.py",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAAC8AAAAIAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVDhPrVTPTxNREP627e7SQm0F2mKLUEVICP5IMBqUhB6NJ4/GGGPwoIf\u002BCR7VxBBPhnAxAeVC4kEuJB6Qi0Y8oCGKpoKQUpEWAhX6c7vb3X1Ol5UauzEc/JLJm31v3pdv5u0M/isYY5zpGohEIs8GBgZu8Dxv7tQik8mwbDb7YGpq6lEqlcqa2/twmOs\u002BBgcHEQgEzK9azMzMsHg8fsdut7Pp6enHKysrafPIQA1hBRRkelUQAcLhMEi9jTLxdnZ23pZl2elwOIYWFxe3zTBrwmAwaHpVcFy1OoIg8P39/c1Efo3KJquq\u002BpBEFCpnNiPiL9CFGvtd14rSyclJDA8P22dnZ1tcLlevKIp\u002B45BgqXBpacn0qqDUQGniXN9F9J6/AIeNg1TIyaOjo9/NEAOWhN3d3aZXRV5W8Sq2jY2sBElSwFNuR9x2x5HWtkabrZrogRXKDUEsb\u002BSxmSlg7tsG1LICX4PAX\u002Blpbff7/Q1mmHUNK6/5t2WKKt4uphBbS0NXy2QasvkiV1RtTrfb7TKvWhNWoGkaNHD4ulXGxNwmPibSOH3Ui95wI5rqeahESq8Ln7dwavLpjXe69HlB1/U2y5RXV1eNdb3E48VCDuvpHF1WoJWJhEyjdHWNVNKvJHBbgDQPlOZ74Ls7ZKmwq6vLsCKrw\u002BZu3lCjl1UquA6P0wGPi4eX7EzYhdNB6j5NoiL/AJS1S5YKY7GYsa6tS5BlUkOptTU6EI1IcNp3aQboNAh0eIUdhJybgFrcI9V2Pf9U2B4KQKCIisLbEQFnWz6gx7eMk/4VnGyOobU\u002BDk79SQF5IqNG4YM7loSKohjWfljE8WYn3KIdvkM6OKYBukIEMq2kkj7BiIJRF9Wd0iCEnlimnEwmjVUkuxU5jgzdD3jooUpEppWosT1kTlJE/S127UA89gV1J76Nj48PWRJ2dHSY3h4qg0HUkwz5AmcQajRc6vtIGRHam9aev1y/9/r1xNuRkZFiDeHY2Nj\u002BIPgTN69fThwVQ2Eon4iQHiD3HqzhPNOcvek3b\u002B7HK2Rm6MFAY\u002BoQ08uPWCmRYvl5ncnJBO29JLsajUbDe1HAL6CnYE1YMsFsAAAAAElFTkSuQmCC",
-              "WhenOpened": "2024-09-19T13:02:34.364Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "menu.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\menu.py",
               "RelativeDocumentMoniker": "Weak_labelling\\menu.py",
@@ -160,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Participant_test.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Tests\\Participant_test.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Tests\\Participant_test.py",
@@ -172,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "CSP_LDA.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Comparable_methods\\CSP_LDA.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Comparable_methods\\CSP_LDA.py",
@@ -184,7 +175,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 0,
+              "Title": "Instruction.py",
+              "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py",
+              "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py",
+              "ToolTip": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py",
+              "RelativeToolTip": "Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py",
+              "ViewState": "AQIAABgAAAAAAAAAAAAtwCMAAAAPAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVDhPrVTPTxNREP627e7SQm0F2mKLUEVICP5IMBqUhB6NJ4/GGGPwoIf\u002BCR7VxBBPhnAxAeVC4kEuJB6Qi0Y8oCGKpoKQUpEWAhX6c7vb3X1Ol5UauzEc/JLJm31v3pdv5u0M/isYY5zpGohEIs8GBgZu8Dxv7tQik8mwbDb7YGpq6lEqlcqa2/twmOs\u002BBgcHEQgEzK9azMzMsHg8fsdut7Pp6enHKysrafPIQA1hBRRkelUQAcLhMEi9jTLxdnZ23pZl2elwOIYWFxe3zTBrwmAwaHpVcFy1OoIg8P39/c1Efo3KJquq\u002BpBEFCpnNiPiL9CFGvtd14rSyclJDA8P22dnZ1tcLlevKIp\u002B45BgqXBpacn0qqDUQGniXN9F9J6/AIeNg1TIyaOjo9/NEAOWhN3d3aZXRV5W8Sq2jY2sBElSwFNuR9x2x5HWtkabrZrogRXKDUEsb\u002BSxmSlg7tsG1LICX4PAX\u002Blpbff7/Q1mmHUNK6/5t2WKKt4uphBbS0NXy2QasvkiV1RtTrfb7TKvWhNWoGkaNHD4ulXGxNwmPibSOH3Ui95wI5rqeahESq8Ln7dwavLpjXe69HlB1/U2y5RXV1eNdb3E48VCDuvpHF1WoJWJhEyjdHWNVNKvJHBbgDQPlOZ74Ls7ZKmwq6vLsCKrw\u002BZu3lCjl1UquA6P0wGPi4eX7EzYhdNB6j5NoiL/AJS1S5YKY7GYsa6tS5BlUkOptTU6EI1IcNp3aQboNAh0eIUdhJybgFrcI9V2Pf9U2B4KQKCIisLbEQFnWz6gx7eMk/4VnGyOobU\u002BDk79SQF5IqNG4YM7loSKohjWfljE8WYn3KIdvkM6OKYBukIEMq2kkj7BiIJRF9Wd0iCEnlimnEwmjVUkuxU5jgzdD3jooUpEppWosT1kTlJE/S127UA89gV1J76Nj48PWRJ2dHSY3h4qg0HUkwz5AmcQajRc6vtIGRHam9aev1y/9/r1xNuRkZFiDeHY2Nj\u002BIPgTN69fThwVQ2Eon4iQHiD3HqzhPNOcvek3b\u002B7HK2Rm6MFAY\u002BoQ08uPWCmRYvl5ncnJBO29JLsajUbDe1HAL6CnYE1YMsFsAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-09-19T12:04:20.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "outlier.py",
+              "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Filters\\outlier.py",
+              "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Filters\\outlier.py",
+              "ToolTip": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Filters\\outlier.py",
+              "RelativeToolTip": "Weak_labelling\\weak_labelling_classes\\Filters\\outlier.py",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAC8AAAAIAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVDhPrVTPTxNREP627e7SQm0F2mKLUEVICP5IMBqUhB6NJ4/GGGPwoIf\u002BCR7VxBBPhnAxAeVC4kEuJB6Qi0Y8oCGKpoKQUpEWAhX6c7vb3X1Ol5UauzEc/JLJm31v3pdv5u0M/isYY5zpGohEIs8GBgZu8Dxv7tQik8mwbDb7YGpq6lEqlcqa2/twmOs\u002BBgcHEQgEzK9azMzMsHg8fsdut7Pp6enHKysrafPIQA1hBRRkelUQAcLhMEi9jTLxdnZ23pZl2elwOIYWFxe3zTBrwmAwaHpVcFy1OoIg8P39/c1Efo3KJquq\u002BpBEFCpnNiPiL9CFGvtd14rSyclJDA8P22dnZ1tcLlevKIp\u002B45BgqXBpacn0qqDUQGniXN9F9J6/AIeNg1TIyaOjo9/NEAOWhN3d3aZXRV5W8Sq2jY2sBElSwFNuR9x2x5HWtkabrZrogRXKDUEsb\u002BSxmSlg7tsG1LICX4PAX\u002Blpbff7/Q1mmHUNK6/5t2WKKt4uphBbS0NXy2QasvkiV1RtTrfb7TKvWhNWoGkaNHD4ulXGxNwmPibSOH3Ui95wI5rqeahESq8Ln7dwavLpjXe69HlB1/U2y5RXV1eNdb3E48VCDuvpHF1WoJWJhEyjdHWNVNKvJHBbgDQPlOZ74Ls7ZKmwq6vLsCKrw\u002BZu3lCjl1UquA6P0wGPi4eX7EzYhdNB6j5NoiL/AJS1S5YKY7GYsa6tS5BlUkOptTU6EI1IcNp3aQboNAh0eIUdhJybgFrcI9V2Pf9U2B4KQKCIisLbEQFnWz6gx7eMk/4VnGyOobU\u002BDk79SQF5IqNG4YM7loSKohjWfljE8WYn3KIdvkM6OKYBukIEMq2kkj7BiIJRF9Wd0iCEnlimnEwmjVUkuxU5jgzdD3jooUpEppWosT1kTlJE/S127UA89gV1J76Nj48PWRJ2dHSY3h4qg0HUkwz5AmcQajRc6vtIGRHam9aev1y/9/r1xNuRkZFiDeHY2Nj\u002BIPgTN69fThwVQ2Eon4iQHiD3HqzhPNOcvek3b\u002B7HK2Rm6MFAY\u002BoQ08uPWCmRYvl5ncnJBO29JLsajUbDe1HAL6CnYE1YMsFsAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-09-19T13:02:34.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "EEGnet.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Comparable_methods\\EEGnet.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Comparable_methods\\EEGnet.py",
@@ -196,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "MLP.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\classifiers\\MLP.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\classifiers\\MLP.py",
@@ -208,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "bag.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\bag_classes\\bag.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\bag_classes\\bag.py",
@@ -220,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "ICA_metrics.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Metrics\\ICA_metrics.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Metrics\\ICA_metrics.py",
@@ -232,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "PCA.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\embedding_models\\PCA.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\embedding_models\\PCA.py",
@@ -244,19 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Instruction.py",
-              "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py",
-              "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py",
-              "ToolTip": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py",
-              "RelativeToolTip": "Weak_labelling\\weak_labelling_classes\\bag_classes\\Instruction.py",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAAQAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVDhPrVTPTxNREP627e7SQm0F2mKLUEVICP5IMBqUhB6NJ4/GGGPwoIf\u002BCR7VxBBPhnAxAeVC4kEuJB6Qi0Y8oCGKpoKQUpEWAhX6c7vb3X1Ol5UauzEc/JLJm31v3pdv5u0M/isYY5zpGohEIs8GBgZu8Dxv7tQik8mwbDb7YGpq6lEqlcqa2/twmOs\u002BBgcHEQgEzK9azMzMsHg8fsdut7Pp6enHKysrafPIQA1hBRRkelUQAcLhMEi9jTLxdnZ23pZl2elwOIYWFxe3zTBrwmAwaHpVcFy1OoIg8P39/c1Efo3KJquq\u002BpBEFCpnNiPiL9CFGvtd14rSyclJDA8P22dnZ1tcLlevKIp\u002B45BgqXBpacn0qqDUQGniXN9F9J6/AIeNg1TIyaOjo9/NEAOWhN3d3aZXRV5W8Sq2jY2sBElSwFNuR9x2x5HWtkabrZrogRXKDUEsb\u002BSxmSlg7tsG1LICX4PAX\u002Blpbff7/Q1mmHUNK6/5t2WKKt4uphBbS0NXy2QasvkiV1RtTrfb7TKvWhNWoGkaNHD4ulXGxNwmPibSOH3Ui95wI5rqeahESq8Ln7dwavLpjXe69HlB1/U2y5RXV1eNdb3E48VCDuvpHF1WoJWJhEyjdHWNVNKvJHBbgDQPlOZ74Ls7ZKmwq6vLsCKrw\u002BZu3lCjl1UquA6P0wGPi4eX7EzYhdNB6j5NoiL/AJS1S5YKY7GYsa6tS5BlUkOptTU6EI1IcNp3aQboNAh0eIUdhJybgFrcI9V2Pf9U2B4KQKCIisLbEQFnWz6gx7eMk/4VnGyOobU\u002BDk79SQF5IqNG4YM7loSKohjWfljE8WYn3KIdvkM6OKYBukIEMq2kkj7BiIJRF9Wd0iCEnlimnEwmjVUkuxU5jgzdD3jooUpEppWosT1kTlJE/S127UA89gV1J76Nj48PWRJ2dHSY3h4qg0HUkwz5AmcQajRc6vtIGRHam9aev1y/9/r1xNuRkZFiDeHY2Nj\u002BIPgTN69fThwVQ2Eon4iQHiD3HqzhPNOcvek3b\u002B7HK2Rm6MFAY\u002BoQ08uPWCmRYvl5ncnJBO29JLsajUbDe1HAL6CnYE1YMsFsAAAAAElFTkSuQmCC",
-              "WhenOpened": "2024-09-19T12:04:20.812Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "CSV_loader.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\data_loaders\\CSV_loader.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\data_loaders\\CSV_loader.py",
@@ -268,7 +272,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "CSP.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\embedding_models\\CSP.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\embedding_models\\CSP.py",
@@ -280,7 +284,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "CPS_mean_bag.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\comparitors\\CPS_mean_bag.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\comparitors\\CPS_mean_bag.py",
@@ -292,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "unembedded.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\embedding_models\\unembedded.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\embedding_models\\unembedded.py",
@@ -304,7 +308,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "__init__.py (weak_labelling_classes.Tests)",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Tests\\__init__.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Tests\\__init__.py",
@@ -316,7 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "__init__.py (weak_labelling_classes.Graphing)",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Graphing\\__init__.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Graphing\\__init__.py",
@@ -334,7 +338,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "SVM.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\classifiers\\SVM.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\classifiers\\SVM.py",
@@ -342,12 +346,11 @@
               "RelativeToolTip": "Weak_labelling\\weak_labelling_classes\\classifiers\\SVM.py",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAhAAAA",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVDhPrVTPTxNREP627e7SQm0F2mKLUEVICP5IMBqUhB6NJ4/GGGPwoIf\u002BCR7VxBBPhnAxAeVC4kEuJB6Qi0Y8oCGKpoKQUpEWAhX6c7vb3X1Ol5UauzEc/JLJm31v3pdv5u0M/isYY5zpGohEIs8GBgZu8Dxv7tQik8mwbDb7YGpq6lEqlcqa2/twmOs\u002BBgcHEQgEzK9azMzMsHg8fsdut7Pp6enHKysrafPIQA1hBRRkelUQAcLhMEi9jTLxdnZ23pZl2elwOIYWFxe3zTBrwmAwaHpVcFy1OoIg8P39/c1Efo3KJquq\u002BpBEFCpnNiPiL9CFGvtd14rSyclJDA8P22dnZ1tcLlevKIp\u002B45BgqXBpacn0qqDUQGniXN9F9J6/AIeNg1TIyaOjo9/NEAOWhN3d3aZXRV5W8Sq2jY2sBElSwFNuR9x2x5HWtkabrZrogRXKDUEsb\u002BSxmSlg7tsG1LICX4PAX\u002Blpbff7/Q1mmHUNK6/5t2WKKt4uphBbS0NXy2QasvkiV1RtTrfb7TKvWhNWoGkaNHD4ulXGxNwmPibSOH3Ui95wI5rqeahESq8Ln7dwavLpjXe69HlB1/U2y5RXV1eNdb3E48VCDuvpHF1WoJWJhEyjdHWNVNKvJHBbgDQPlOZ74Ls7ZKmwq6vLsCKrw\u002BZu3lCjl1UquA6P0wGPi4eX7EzYhdNB6j5NoiL/AJS1S5YKY7GYsa6tS5BlUkOptTU6EI1IcNp3aQboNAh0eIUdhJybgFrcI9V2Pf9U2B4KQKCIisLbEQFnWz6gx7eMk/4VnGyOobU\u002BDk79SQF5IqNG4YM7loSKohjWfljE8WYn3KIdvkM6OKYBukIEMq2kkj7BiIJRF9Wd0iCEnlimnEwmjVUkuxU5jgzdD3jooUpEppWosT1kTlJE/S127UA89gV1J76Nj48PWRJ2dHSY3h4qg0HUkwz5AmcQajRc6vtIGRHam9aev1y/9/r1xNuRkZFiDeHY2Nj\u002BIPgTN69fThwVQ2Eon4iQHiD3HqzhPNOcvek3b\u002B7HK2Rm6MFAY\u002BoQ08uPWCmRYvl5ncnJBO29JLsajUbDe1HAL6CnYE1YMsFsAAAAAElFTkSuQmCC",
-              "WhenOpened": "2024-09-19T12:04:20.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-19T12:04:20.822Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "SSFFT.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\embedding_models\\SSFFT.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\embedding_models\\SSFFT.py",
@@ -359,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Data_set_scatter.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Graphing\\Data_set_scatter.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Graphing\\Data_set_scatter.py",
@@ -367,12 +370,11 @@
               "RelativeToolTip": "Weak_labelling\\weak_labelling_classes\\Graphing\\Data_set_scatter.py",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAeAAAA",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVDhPrVTPTxNREP627e7SQm0F2mKLUEVICP5IMBqUhB6NJ4/GGGPwoIf\u002BCR7VxBBPhnAxAeVC4kEuJB6Qi0Y8oCGKpoKQUpEWAhX6c7vb3X1Ol5UauzEc/JLJm31v3pdv5u0M/isYY5zpGohEIs8GBgZu8Dxv7tQik8mwbDb7YGpq6lEqlcqa2/twmOs\u002BBgcHEQgEzK9azMzMsHg8fsdut7Pp6enHKysrafPIQA1hBRRkelUQAcLhMEi9jTLxdnZ23pZl2elwOIYWFxe3zTBrwmAwaHpVcFy1OoIg8P39/c1Efo3KJquq\u002BpBEFCpnNiPiL9CFGvtd14rSyclJDA8P22dnZ1tcLlevKIp\u002B45BgqXBpacn0qqDUQGniXN9F9J6/AIeNg1TIyaOjo9/NEAOWhN3d3aZXRV5W8Sq2jY2sBElSwFNuR9x2x5HWtkabrZrogRXKDUEsb\u002BSxmSlg7tsG1LICX4PAX\u002Blpbff7/Q1mmHUNK6/5t2WKKt4uphBbS0NXy2QasvkiV1RtTrfb7TKvWhNWoGkaNHD4ulXGxNwmPibSOH3Ui95wI5rqeahESq8Ln7dwavLpjXe69HlB1/U2y5RXV1eNdb3E48VCDuvpHF1WoJWJhEyjdHWNVNKvJHBbgDQPlOZ74Ls7ZKmwq6vLsCKrw\u002BZu3lCjl1UquA6P0wGPi4eX7EzYhdNB6j5NoiL/AJS1S5YKY7GYsa6tS5BlUkOptTU6EI1IcNp3aQboNAh0eIUdhJybgFrcI9V2Pf9U2B4KQKCIisLbEQFnWz6gx7eMk/4VnGyOobU\u002BDk79SQF5IqNG4YM7loSKohjWfljE8WYn3KIdvkM6OKYBukIEMq2kkj7BiIJRF9Wd0iCEnlimnEwmjVUkuxU5jgzdD3jooUpEppWosT1kTlJE/S127UA89gV1J76Nj48PWRJ2dHSY3h4qg0HUkwz5AmcQajRc6vtIGRHam9aev1y/9/r1xNuRkZFiDeHY2Nj\u002BIPgTN69fThwVQ2Eon4iQHiD3HqzhPNOcvek3b\u002B7HK2Rm6MFAY\u002BoQ08uPWCmRYvl5ncnJBO29JLsajUbDe1HAL6CnYE1YMsFsAAAAAElFTkSuQmCC",
-              "WhenOpened": "2024-09-19T12:04:20.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-19T12:04:20.832Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "ICA_all_graphs.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Graphing\\ICA_all_graphs.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Graphing\\ICA_all_graphs.py",
@@ -385,7 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Offline_test.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\Offline_test.py",
               "RelativeDocumentMoniker": "Weak_labelling\\Offline_test.py",
@@ -397,7 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Bag_filters.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Filters\\Bag_filters.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Filters\\Bag_filters.py",
@@ -409,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "__init__.py (weak_labelling_classes.Comparable_methods)",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Comparable_methods\\__init__.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Comparable_methods\\__init__.py",
@@ -421,7 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "SSFFT_mean_bag.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\comparitors\\SSFFT_mean_bag.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\comparitors\\SSFFT_mean_bag.py",
@@ -433,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "Flatten_data.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\embedding_models\\Flatten_data.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\embedding_models\\Flatten_data.py",
@@ -445,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "Mean_bag_comparitor.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\comparitors\\Mean_bag_comparitor.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\comparitors\\Mean_bag_comparitor.py",
@@ -457,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "Butterworth.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Filters\\Butterworth.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Filters\\Butterworth.py",
@@ -486,11 +488,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ICA_inner.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\comparitors\\ICA_inner.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\comparitors\\ICA_inner.py",
@@ -498,12 +500,11 @@
               "RelativeToolTip": "Weak_labelling\\weak_labelling_classes\\comparitors\\ICA_inner.py",
               "ViewState": "AQIAAFsAAAAAAAAAAADwv3gAAAAaAAAA",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVDhPrVTPTxNREP627e7SQm0F2mKLUEVICP5IMBqUhB6NJ4/GGGPwoIf\u002BCR7VxBBPhnAxAeVC4kEuJB6Qi0Y8oCGKpoKQUpEWAhX6c7vb3X1Ol5UauzEc/JLJm31v3pdv5u0M/isYY5zpGohEIs8GBgZu8Dxv7tQik8mwbDb7YGpq6lEqlcqa2/twmOs\u002BBgcHEQgEzK9azMzMsHg8fsdut7Pp6enHKysrafPIQA1hBRRkelUQAcLhMEi9jTLxdnZ23pZl2elwOIYWFxe3zTBrwmAwaHpVcFy1OoIg8P39/c1Efo3KJquq\u002BpBEFCpnNiPiL9CFGvtd14rSyclJDA8P22dnZ1tcLlevKIp\u002B45BgqXBpacn0qqDUQGniXN9F9J6/AIeNg1TIyaOjo9/NEAOWhN3d3aZXRV5W8Sq2jY2sBElSwFNuR9x2x5HWtkabrZrogRXKDUEsb\u002BSxmSlg7tsG1LICX4PAX\u002Blpbff7/Q1mmHUNK6/5t2WKKt4uphBbS0NXy2QasvkiV1RtTrfb7TKvWhNWoGkaNHD4ulXGxNwmPibSOH3Ui95wI5rqeahESq8Ln7dwavLpjXe69HlB1/U2y5RXV1eNdb3E48VCDuvpHF1WoJWJhEyjdHWNVNKvJHBbgDQPlOZ74Ls7ZKmwq6vLsCKrw\u002BZu3lCjl1UquA6P0wGPi4eX7EzYhdNB6j5NoiL/AJS1S5YKY7GYsa6tS5BlUkOptTU6EI1IcNp3aQboNAh0eIUdhJybgFrcI9V2Pf9U2B4KQKCIisLbEQFnWz6gx7eMk/4VnGyOobU\u002BDk79SQF5IqNG4YM7loSKohjWfljE8WYn3KIdvkM6OKYBukIEMq2kkj7BiIJRF9Wd0iCEnlimnEwmjVUkuxU5jgzdD3jooUpEppWosT1kTlJE/S127UA89gV1J76Nj48PWRJ2dHSY3h4qg0HUkwz5AmcQajRc6vtIGRHam9aev1y/9/r1xNuRkZFiDeHY2Nj\u002BIPgTN69fThwVQ2Eon4iQHiD3HqzhPNOcvek3b\u002B7HK2Rm6MFAY\u002BoQ08uPWCmRYvl5ncnJBO29JLsajUbDe1HAL6CnYE1YMsFsAAAAAElFTkSuQmCC",
-              "WhenOpened": "2024-09-19T12:04:20.527Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-19T12:04:20.527Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Simulated_trainig.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Tests\\Simulated_trainig.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Tests\\Simulated_trainig.py",
@@ -516,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "BCI_TVR.py",
               "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\Comparable_methods\\BCI_TVR.py",
               "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\Comparable_methods\\BCI_TVR.py",
@@ -525,6 +526,19 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAAAaAAAA",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVDhPrVTPTxNREP627e7SQm0F2mKLUEVICP5IMBqUhB6NJ4/GGGPwoIf\u002BCR7VxBBPhnAxAeVC4kEuJB6Qi0Y8oCGKpoKQUpEWAhX6c7vb3X1Ol5UauzEc/JLJm31v3pdv5u0M/isYY5zpGohEIs8GBgZu8Dxv7tQik8mwbDb7YGpq6lEqlcqa2/twmOs\u002BBgcHEQgEzK9azMzMsHg8fsdut7Pp6enHKysrafPIQA1hBRRkelUQAcLhMEi9jTLxdnZ23pZl2elwOIYWFxe3zTBrwmAwaHpVcFy1OoIg8P39/c1Efo3KJquq\u002BpBEFCpnNiPiL9CFGvtd14rSyclJDA8P22dnZ1tcLlevKIp\u002B45BgqXBpacn0qqDUQGniXN9F9J6/AIeNg1TIyaOjo9/NEAOWhN3d3aZXRV5W8Sq2jY2sBElSwFNuR9x2x5HWtkabrZrogRXKDUEsb\u002BSxmSlg7tsG1LICX4PAX\u002Blpbff7/Q1mmHUNK6/5t2WKKt4uphBbS0NXy2QasvkiV1RtTrfb7TKvWhNWoGkaNHD4ulXGxNwmPibSOH3Ui95wI5rqeahESq8Ln7dwavLpjXe69HlB1/U2y5RXV1eNdb3E48VCDuvpHF1WoJWJhEyjdHWNVNKvJHBbgDQPlOZ74Ls7ZKmwq6vLsCKrw\u002BZu3lCjl1UquA6P0wGPi4eX7EzYhdNB6j5NoiL/AJS1S5YKY7GYsa6tS5BlUkOptTU6EI1IcNp3aQboNAh0eIUdhJybgFrcI9V2Pf9U2B4KQKCIisLbEQFnWz6gx7eMk/4VnGyOobU\u002BDk79SQF5IqNG4YM7loSKohjWfljE8WYn3KIdvkM6OKYBukIEMq2kkj7BiIJRF9Wd0iCEnlimnEwmjVUkuxU5jgzdD3jooUpEppWosT1kTlJE/S127UA89gV1J76Nj48PWRJ2dHSY3h4qg0HUkwz5AmcQajRc6vtIGRHam9aev1y/9/r1xNuRkZFiDeHY2Nj\u002BIPgTN69fThwVQ2Eon4iQHiD3HqzhPNOcvek3b\u002B7HK2Rm6MFAY\u002BoQ08uPWCmRYvl5ncnJBO29JLsajUbDe1HAL6CnYE1YMsFsAAAAAElFTkSuQmCC",
               "WhenOpened": "2024-09-19T12:04:20.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ICA_inner_diverse_density.py",
+              "DocumentMoniker": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\comparitors\\ICA_inner_diverse_density.py",
+              "RelativeDocumentMoniker": "Weak_labelling\\weak_labelling_classes\\comparitors\\ICA_inner_diverse_density.py",
+              "ToolTip": "C:\\Users\\Aspire\\Documents\\GitHub\\Weak_labelling_BCI\\Weak_labelling\\Weak_labelling\\weak_labelling_classes\\comparitors\\ICA_inner_diverse_density.py",
+              "RelativeToolTip": "Weak_labelling\\weak_labelling_classes\\comparitors\\ICA_inner_diverse_density.py",
+              "ViewState": "AQIAAL0AAAAAAAAAAADwv2wAAAAiAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVDhPrVTPTxNREP627e7SQm0F2mKLUEVICP5IMBqUhB6NJ4/GGGPwoIf\u002BCR7VxBBPhnAxAeVC4kEuJB6Qi0Y8oCGKpoKQUpEWAhX6c7vb3X1Ol5UauzEc/JLJm31v3pdv5u0M/isYY5zpGohEIs8GBgZu8Dxv7tQik8mwbDb7YGpq6lEqlcqa2/twmOs\u002BBgcHEQgEzK9azMzMsHg8fsdut7Pp6enHKysrafPIQA1hBRRkelUQAcLhMEi9jTLxdnZ23pZl2elwOIYWFxe3zTBrwmAwaHpVcFy1OoIg8P39/c1Efo3KJquq\u002BpBEFCpnNiPiL9CFGvtd14rSyclJDA8P22dnZ1tcLlevKIp\u002B45BgqXBpacn0qqDUQGniXN9F9J6/AIeNg1TIyaOjo9/NEAOWhN3d3aZXRV5W8Sq2jY2sBElSwFNuR9x2x5HWtkabrZrogRXKDUEsb\u002BSxmSlg7tsG1LICX4PAX\u002Blpbff7/Q1mmHUNK6/5t2WKKt4uphBbS0NXy2QasvkiV1RtTrfb7TKvWhNWoGkaNHD4ulXGxNwmPibSOH3Ui95wI5rqeahESq8Ln7dwavLpjXe69HlB1/U2y5RXV1eNdb3E48VCDuvpHF1WoJWJhEyjdHWNVNKvJHBbgDQPlOZ74Ls7ZKmwq6vLsCKrw\u002BZu3lCjl1UquA6P0wGPi4eX7EzYhdNB6j5NoiL/AJS1S5YKY7GYsa6tS5BlUkOptTU6EI1IcNp3aQboNAh0eIUdhJybgFrcI9V2Pf9U2B4KQKCIisLbEQFnWz6gx7eMk/4VnGyOobU\u002BDk79SQF5IqNG4YM7loSKohjWfljE8WYn3KIdvkM6OKYBukIEMq2kkj7BiIJRF9Wd0iCEnlimnEwmjVUkuxU5jgzdD3jooUpEppWosT1kTlJE/S127UA89gV1J76Nj48PWRJ2dHSY3h4qg0HUkwz5AmcQajRc6vtIGRHam9aev1y/9/r1xNuRkZFiDeHY2Nj\u002BIPgTN69fThwVQ2Eon4iQHiD3HqzhPNOcvek3b\u002B7HK2Rm6MFAY\u002BoQ08uPWCmRYvl5ncnJBO29JLsajUbDe1HAL6CnYE1YMsFsAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-10-14T13:26:48.6Z",
+              "EditorCaption": ""
             }
           ]
         }

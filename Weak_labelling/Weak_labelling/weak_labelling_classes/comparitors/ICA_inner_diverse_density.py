@@ -12,7 +12,7 @@ from ..embedding_models.PCA import Pca
 from sklearn.svm import SVC
 from sklearn.preprocessing import normalize
 from sklearn.ensemble import IsolationForest
-
+from ..Metrics import Diverse_Density
 
 import copy
 from ..Metrics.ICA_metrics import ica_metrics
@@ -61,16 +61,16 @@ class ICA_inner_diverse_desnity():
         
         self.comps = []
         
-    def retrieve_indexes(self,pos_bag, neg_bag, pos_inst):
+    def retrieve_indexes(self,pos_bags, neg_bags, pos_inst):
         
-        pos_comps = self.convert_bag(pos_bag,self.ints_dict[pos_inst.get_name().lower()], is_pos = True)
-        neg_comps = self.convert_bag(neg_bag,self.ints_dict[pos_inst.get_name().lower()], is_pos = False)
+        pos_inst_comps = self.convert_inst(pos_bags,self.ints_dict[pos_inst.get_name().lower()], is_pos = True)
+        neg_inst_comps = self.convert_inst(neg_bags,self.ints_dict[pos_inst.get_name().lower()], is_pos = False)
         
-        pos_indexes, sep_score = self.get_kept_indexes2(pos_comps,neg_comps, pos_inst.get_name().lower())
+        pos_indexes, sep_score = self.get_kept_indexes2(pos_inst_comps,neg_inst_comps, pos_inst.get_name().lower())
         
         return pos_indexes, sep_score
         
-    def test_2_classes_all(self, inst1, inst2):
+    def test_2_classes(self, inst1, inst2):
         
         self.graph = ica_all_graphs().create_dir(self.name, self.session)
         #comp_method = bci_tvr(self.graph)
@@ -83,11 +83,19 @@ class ICA_inner_diverse_desnity():
 
         self.plot_csp_patterns([bag1, bag2], 'standard')        
 
-        filt_bag1 = self.filter_bag(bag1)
-        filt_bag2 = self.filter_bag(bag2)
+        filt_inst_1 = []
+        filt_inst_2 = []
         
-        index1, sep_score1 = self.retrieve_indexes(filt_bag1, filt_bag2, inst1)
-        index2, sep_score2 = self.retrieve_indexes(filt_bag2, filt_bag1, inst2)
+        for i in range(inst1.get_bags_length):
+            filt_inst_1.append(self.filter_bag(inst1.get_bag(i, copy = True).get_bag()))
+            
+        for i in range(inst2.get_bags_length):
+            filt_inst_2.append(self.filter_bag(inst2.get_bag(i, copy = True).get_bag()))
+
+        
+        
+        index1, max_dd_1 = self.retrieve_indexes(filt_inst_1, filt_inst_2, inst1)
+        index2, max_dd_2 = self.retrieve_indexes(filt_inst_2, filt_inst_1, inst2)
         
         
         bpl1 = len(bag1)
@@ -95,11 +103,11 @@ class ICA_inner_diverse_desnity():
         bag1 = self.retrive_index_data(bag1, index1)
         bag2 = self.retrive_index_data(bag2, index2)
         
-        self.plot_csp_patterns([bag1, bag2], 'after')  
+        #self.plot_csp_patterns([bag1, bag2], 'after')  
         processed_accuracy = comp_method.process_and_classify([bag1, bag2])
-        dloss = self.get_dloss([bpl1, bpl2], [len(index1), len(index2)])
+        #dloss = self.get_dloss([bpl1, bpl2], [len(index1), len(index2)])
         self.plot_similarit_graphs()
-        return [processed_accuracy, orgin_acc, sep_score1, sep_score2, bpl1, bpl2, len(index1), len(index2),dloss]
+        return [processed_accuracy, orgin_acc, max_dd_1, max_dd_2, bpl1, bpl2, len(index1), len(index2)]#dloss]
         
     
     def normalize_im(self, im):
@@ -162,6 +170,13 @@ class ICA_inner_diverse_desnity():
         sources = np.matmul(epoch, mixing)
         return sources, mixing
     
+    def flatten_inst(self, inst):
+        new_inst = []
+        for b in inst:
+            new_inst.append(self.flatten_data(b))
+            
+        return new_inst
+            
     def flatten_data(self,bag):
         new_values = []
 
@@ -180,9 +195,7 @@ class ICA_inner_diverse_desnity():
         for b in bags:
             new_bag.extend_bag(b.get_bag())
         return new_bag
-    
-    def get_bag_mean(self,bag):
-        return np.mean(np.stack(bag, axis = 0), axis = 0)  
+
 
     def split_bag_2(self,X,y):
         bag_1 = []
@@ -235,6 +248,15 @@ class ICA_inner_diverse_desnity():
         
         return comps
     
+    def convert_inst(self, inst_array:[[np.ndarray]],inst: Instruction, is_pos:bool = True):
+        
+        new_inst = []
+
+        for i in inst:
+            new_inst.append(self.convert_bag(i, inst, is_pos))
+            
+        return new_inst
+    
     def convert_bag(self,bag:[np.ndarray], inst, is_pos = True):
         if is_pos: 
             self.comps.append([])
@@ -248,7 +270,14 @@ class ICA_inner_diverse_desnity():
         bf = Bag_filters()
         return bf.broad_bag(bf.sl_bag(bag))
         #return bf.filter_bag(bag)
+    
+    def fft_inst(self, inst):
+        new_inst = []
         
+        for b in inst:
+            new_inst.append(self.fft_bag(b))
+        
+        return new_inst
     
     def fft_bag(self,bag):
         s = ssfft()
@@ -264,49 +293,53 @@ class ICA_inner_diverse_desnity():
     def cos_sim(self,a,b):
         return np.dot(a, b)/(np.linalg.norm(a)*np.linalg.norm(b))
     
-    def get_kept_indexes2(self, pos_bag, neg_bag, pos_name = ''):
+    
+    
+    def get_kept_indexes2(self, pos_inst, neg_inst, pos_name = ''):
         
-        pos_bag = self.flatten_data(self.fft_bag(pos_bag))
-        neg_bag = self.flatten_data(self.fft_bag(neg_bag))
+
+        pos_inst = self.flatten_inst(self.fft_inst(pos_inst))
+        neg_inst = self.flatten_inst(self.fft_inst(neg_inst))
         
         od = outlier_dection()
-        #bag1 = od.std_remover(bag1)
-        #bag2 = od.std_remover(bag2)
-
-        pos_bag = od.Isolation_forrest(pos_bag)
-        neg_bag = od.Isolation_forrest(neg_bag)
         
-        self.plot_2D_scatter([pos_bag, neg_bag], ['pos','neg'],means = False, name = pos_name)
+        #pos_bag = od.Isolation_forrest(pos_bag)
+        #neg_bag = od.Isolation_forrest(neg_bag)
         
-        X, y = self.PCA_data([pos_bag,neg_bag])
+        
+        
+        #X, y = self.PCA_data([pos_bag,neg_bag])
         #X,y = self.convert_to_ml_data([bag1,bag2])
-        pos_bag, neg_bag = self.split_bag_2(X,y)
+        #pos_bag, neg_bag = self.split_bag_2(X,y)
         
 
         #bag1 = self.flatten_data(bag1)
         #bag2 = self.flatten_data(bag2)
-
-        pm = self.get_bag_mean(pos_bag)
-        nm = self.get_bag_mean(neg_bag)
-        sep = self.get_sep(pm,nm)
         
-        pos_bag, index1 = self.calc_kept_values(sep, pos_bag)
+        dd_scores = self.get_diverse_density(pos_inst, neg_inst)
+
+
+        pos_all = self.combine_bags(pos_inst).get_bag()
+        neg_all = self.combine_bags(neg_inst).get_bag()
+        dd_all = self.combine_bags(dd_scores).get_bag()
+        
+        max_dd = pos_all[np.argmax(dd_all)]
+        
+        pos_bag, index1 = self.calc_kept_values(max_dd, pos_all)
         #bag2, index2 = self.calc_kept_values(sep2, bag2)
-        self.plot_2D_scatter([pos_bag, neg_bag], ['pos','neg'],means = False, name = pos_name)
-        sep_score = self.test_seperation([pos_bag,neg_bag])
         
-        
-        return index1, sep_score
 
-    def get_sep(self, pos, neg):
-        return pos-neg
+        
+        return index1, max_dd
+
     
-    def calc_kept_values(self,sep,bag):
+    
+    def calc_kept_values(self,max_dd,bag):
         kept_values = []
         indexes = []
         count = 0
         for i in bag:
-            if self.cos_sim(sep, i) > self.comp_treshold: # Threshold value
+            if self.euclid_dist(max_dd, bag) > self.comp_treshold: # Threshold value
                 kept_values.append(i)
                 indexes.append(count)
             count+= 1
@@ -402,6 +435,28 @@ class ICA_inner_diverse_desnity():
         self.graph.plot_scatter([pos_bag,neg_bag], class_names, means = means, name = name)
 
 
-    def calculate_diverse_density(self, positive_bags):
+    def calculate_diverse_density(self, positive_bags, negative_bags, x):
+        dd = Diverse_Density.diverse_denisty()
+        
+        score = dd.test_position(positive_bags, negative_bags,x)
+        return score
         
 
+    def test_bag_positions(self, pos_bag, positive_bags,negative_bags):
+        bag_values = []
+
+        for x in pos_bag:
+            bag_values.append(self.calculate_diverse_density(positive_bags,negative_bags, x))
+            
+        return bag_values
+            
+            
+    def get_diverse_density(self, positive_bags, negative_bags):
+        dd_per_bag = []
+        for b in positive_bags:
+            dd_per_bag.append(self.test_bag_positions(b, positive_bags, negative_bags))
+            
+        return dd_per_bag
+    
+    def euclid_dist(self, a,b):
+        return np.linalg.norm(a-b)

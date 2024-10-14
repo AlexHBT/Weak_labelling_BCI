@@ -33,8 +33,11 @@ class Instruction():
     def get_bags(self):
         return copy.copy(self._bags)
     
-    def get_bag(self, index: int):
-        return self._bags[index]
+    def get_bag(self, index: int, copy = False):
+        if copy:
+            return copy.deepcopy(self._bags[index])
+        else:
+            return self._bags[index]
         
     def get_bags_length(self):
         return len(self._bags)
