@@ -17,6 +17,7 @@ from ..Metrics import Diverse_Density
 import copy
 from ..Metrics.ICA_metrics import ica_metrics
 from ..Graphing.ICA_all_graphs import ica_all_graphs
+from ..Graphing.Bag_Graphs import bag_graphs
 from .ICA_Inner_measures import sim_measures
 
 from ..Filters.outlier import outlier_dection
@@ -66,6 +67,8 @@ class ICA_inner_diverse_desnity():
         pos_inst_comps = self.convert_inst(pos_bags,self.ints_dict[pos_inst.get_name().lower()], is_pos = True)
         neg_inst_comps = self.convert_inst(neg_bags,self.ints_dict[pos_inst.get_name().lower()], is_pos = False)
         
+        
+        
         pos_indexes, sep_score = self.get_kept_indexes2(pos_inst_comps,neg_inst_comps, pos_inst.get_name().lower())
         
         return pos_indexes, sep_score
@@ -73,6 +76,7 @@ class ICA_inner_diverse_desnity():
     def test_2_classes(self, inst1, inst2):
         
         self.graph = ica_all_graphs().create_dir(self.name, self.session)
+        self.bag_graph = bag_graphs().create_dir(self.name, self.session)
         #comp_method = bci_tvr(self.graph)
         comp_method = csp_classifier()
         
@@ -102,6 +106,7 @@ class ICA_inner_diverse_desnity():
         bpl2 = len(bag2)
         bag1 = self.retrive_index_data(bag1, index1)
         bag2 = self.retrive_index_data(bag2, index2)
+        
         
         #self.plot_csp_patterns([bag1, bag2], 'after')  
         processed_accuracy = comp_method.process_and_classify([bag1, bag2])
@@ -307,6 +312,8 @@ class ICA_inner_diverse_desnity():
 
         pos_inst = self.flatten_inst(self.fft_inst(pos_inst))
         neg_inst = self.flatten_inst(self.fft_inst(neg_inst))
+        
+        self.bag_graph.plot_space(pos_inst, neg_inst, pos_name)
         
         od = outlier_dection()
         

@@ -12,7 +12,7 @@
     <Name>Weak_labelling</Name>
     <RootNamespace>Weak_labelling</RootNamespace>
     <TestFramework>Pytest</TestFramework>
-    <InterpreterId>Global|PythonCore|3.11</InterpreterId>
+    <InterpreterId>Global|VisualStudio|Python311 local</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,9 +56,8 @@
     <Compile Include="weak_labelling_classes\data_loaders\CSV_loader.py" />
     <Compile Include="weak_labelling_classes\data_loaders\__init__.py" />
     <Compile Include="Weak_labelling.py" />
-    <Compile Include="weak_labelling_classes\Graphing\Bag_scatter.py" />
+    <Compile Include="weak_labelling_classes\Graphing\Bag_Graphs.py" />
     <Compile Include="weak_labelling_classes\Graphing\ICA_all_graphs.py" />
-    <Compile Include="weak_labelling_classes\Graphing\Data_set_scatter.py" />
     <Compile Include="weak_labelling_classes\Graphing\__init__.py" />
     <Compile Include="weak_labelling_classes\Metrics\Diverse_Density.py" />
     <Compile Include="weak_labelling_classes\Metrics\ICA_metrics.py" />
@@ -84,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.11" />
+    <InterpreterReference Include="Global|VisualStudio|Python311 local" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

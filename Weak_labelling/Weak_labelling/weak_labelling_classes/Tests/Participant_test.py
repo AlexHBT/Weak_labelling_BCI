@@ -7,9 +7,9 @@ from ..Filters.Butterworth import butterworth
 from ..embedding_models.SSFFT import ssfft
 from ..comparitors.Mean_bag_comparitor import Mean_bag
 from ..classifiers.SVM import SVM
-from ..Graphing.Bag_scatter import Bag_scatter
+#from ..Graphing.Bag_scatter import Bag_scatter
 from ..embedding_models.PCA import Pca
-from ..Graphing.Data_set_scatter import data_set_scatter
+#from ..Graphing.Data_set_scatter import data_set_scatter
 from ..comparitors.CPS_mean_bag import CSP_mean_bag
 from ..comparitors import SSFFT_mean_bag
 from ..comparitors import ICA_inner_product

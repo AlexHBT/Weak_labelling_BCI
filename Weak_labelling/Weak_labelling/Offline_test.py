@@ -8,9 +8,9 @@ from weak_labelling_classes.Filters.Butterworth import butterworth
 from weak_labelling_classes.embedding_models.SSFFT import ssfft
 from weak_labelling_classes.comparitors.Mean_bag_comparitor import Mean_bag
 from weak_labelling_classes.classifiers.SVM import SVM
-from weak_labelling_classes.Graphing.Bag_scatter import Bag_scatter
+#from weak_labelling_classes.Graphing.Bag_scatter import Bag_scatter
 from weak_labelling_classes.embedding_models.PCA import Pca
-from weak_labelling_classes.Graphing.Data_set_scatter import data_set_scatter
+#from weak_labelling_classes.Graphing.Data_set_scatter import data_set_scatter
 from weak_labelling_classes.comparitors.CPS_mean_bag import CSP_mean_bag
 from weak_labelling_classes.embedding_models import CSP
 
