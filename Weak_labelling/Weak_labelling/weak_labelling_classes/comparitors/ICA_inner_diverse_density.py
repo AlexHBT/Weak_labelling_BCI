@@ -45,7 +45,7 @@ class ICA_inner_diverse_desnity():
     graph = None
     
     comps = None
-    comp_treshold = 0.5
+    comp_treshold = 10
     
     def get_data_columns(self):
         return ['Method accuracy','Without method accuracy',
@@ -86,11 +86,11 @@ class ICA_inner_diverse_desnity():
         filt_inst_1 = []
         filt_inst_2 = []
         
-        for i in range(inst1.get_bags_length):
-            filt_inst_1.append(self.filter_bag(inst1.get_bag(i, copy = True).get_bag()))
+        for i in range(inst1.get_bags_length()):
+            filt_inst_1.append(self.filter_bag(inst1.get_bag(i, copy_bag = True).get_bag()))
             
-        for i in range(inst2.get_bags_length):
-            filt_inst_2.append(self.filter_bag(inst2.get_bag(i, copy = True).get_bag()))
+        for i in range(inst2.get_bags_length()):
+            filt_inst_2.append(self.filter_bag(inst2.get_bag(i, copy_bag = True).get_bag()))
 
         
         
@@ -195,6 +195,13 @@ class ICA_inner_diverse_desnity():
         for b in bags:
             new_bag.extend_bag(b.get_bag())
         return new_bag
+    
+    def combine_lists(self, bags):
+        new_list = []
+        for b in bags:
+            new_list.extend(b)
+            
+        return new_list
 
 
     def split_bag_2(self,X,y):
@@ -252,7 +259,7 @@ class ICA_inner_diverse_desnity():
         
         new_inst = []
 
-        for i in inst:
+        for i in inst_array:
             new_inst.append(self.convert_bag(i, inst, is_pos))
             
         return new_inst
@@ -319,9 +326,11 @@ class ICA_inner_diverse_desnity():
         dd_scores = self.get_diverse_density(pos_inst, neg_inst)
 
 
-        pos_all = self.combine_bags(pos_inst).get_bag()
-        neg_all = self.combine_bags(neg_inst).get_bag()
-        dd_all = self.combine_bags(dd_scores).get_bag()
+        pos_all = self.combine_lists(pos_inst)
+        neg_all = self.combine_lists(neg_inst)
+        dd_all = self.combine_lists(dd_scores)
+        
+        #self.comp_treshold = np.abs(np.std(dd_all))
         
         max_dd = pos_all[np.argmax(dd_all)]
         
@@ -339,7 +348,8 @@ class ICA_inner_diverse_desnity():
         indexes = []
         count = 0
         for i in bag:
-            if self.euclid_dist(max_dd, bag) > self.comp_treshold: # Threshold value
+            dist = self.euclid_dist(max_dd, i)
+            if dist < self.comp_treshold: # Threshold value
                 kept_values.append(i)
                 indexes.append(count)
             count+= 1
@@ -405,10 +415,12 @@ class ICA_inner_diverse_desnity():
             
 
     def plot_similarit_graphs(self, inst_names = None):
-        inst_names = ['left','right']
-        for i in range(len(self.comps)):
-            self.graph.plot_3D_mean(self.comps[i], inst_names[i])
-            self.graph.plot_top_n(self.comps[i],10,inst_names[i])
+        #inst_names = ['left','right']
+        #for i in range(len(self.comps)):
+            #self.graph.plot_3D_mean(self.comps[i], inst_names[i])
+            #self.graph.plot_top_n(self.comps[i],10,inst_names[i])
+
+        pass
             
     def split_array(self, arr: np.ndarray, axis:int ):
         s = np.split(arr, arr.shape[axis], axis = axis)
@@ -452,6 +464,8 @@ class ICA_inner_diverse_desnity():
             
             
     def get_diverse_density(self, positive_bags, negative_bags):
+        
+        positive_bags, negative_bags = self.normalize_all_bags(positive_bags,negative_bags)
         dd_per_bag = []
         for b in positive_bags:
             dd_per_bag.append(self.test_bag_positions(b, positive_bags, negative_bags))
@@ -460,3 +474,36 @@ class ICA_inner_diverse_desnity():
     
     def euclid_dist(self, a,b):
         return np.linalg.norm(a-b)
+    
+    def normalize_all_bags(self,pos_bags, neg_bags):
+        
+        all_pos = np.stack(self.combine_lists(pos_bags), axis = 0)
+        all_neg = np.stack(self.combine_lists(neg_bags), axis = 0)
+        split = all_pos.shape[0]
+        
+        all_data = np.concatenate((all_pos, all_neg), axis = 0)
+        
+        norm_data = normalize(all_data)
+        
+        norm_pos = norm_data[:split,:]
+        norm_neg = norm_data[split:,:]
+        
+        pos_bags = self.resplit_bags(norm_pos,pos_bags)
+        neg_bags = self.resplit_bags(norm_neg,neg_bags)
+        
+        return pos_bags, neg_bags
+        
+    def resplit_bags(self, list, bags):
+        
+        new_bags = []
+        count = 0
+        for i in range(len(bags)):
+            new_bags.append([])
+            for j in range(len(bags[i])):
+                new_bags[i].append(list[i,:])
+                count += 1
+
+        return new_bags
+        
+
+    

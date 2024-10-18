@@ -64,7 +64,7 @@ class Simulated_Training():
         #for i in range(len(files)-1):
         for i in range(len(files)):
                 
-            try:
+            #try:
                 self.print_progress(i,len(files))
                 train_files = []
                 test_files = []
@@ -77,8 +77,8 @@ class Simulated_Training():
             
                 accuracies.append(pt.start_2(train_files,part_name, i+1))
                 
-            except:
-                print(f'\n ({i}/{len(files)}) Failed to get results')
+            #except:
+                #print(f'\n ({i}/{len(files)}) Failed to get results')
         self.print_progress(len(files),len(files))
         return accuracies
         
