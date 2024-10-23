@@ -3,7 +3,7 @@ import numpy as np
 
 from tkinter import filedialog
 import Offline_test
-from weak_labelling_classes.Tests import Dataset_test
+from weak_labelling_classes.Tests import Single_file
 from weak_labelling_classes.Tests import Simulated_trainig
 
 class menu():
@@ -15,16 +15,17 @@ class menu():
     def show_menu(self):
         
         print('Weak labelling BCI testing\n')
-        print('1) Test offline method\n')
-        print('2) Dataset Test')
+        print('1) Test single file')
+        #print('2) Dataset Test')
         print('3) Simulated training')
         print('4) Quit')
         
         match input('>>'):
             case '1':
-                Offline_test.offline_test().start()
+                Single_file.single_file().start()
+                print('\n\n\n\n')
             case '2':
-                Dataset_test.dataset_test().start()
+               pass
                 
             case '3':
                 Simulated_trainig.Simulated_Training().start(

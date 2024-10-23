@@ -69,9 +69,9 @@ class ICA_inner_diverse_desnity():
         
         
         
-        pos_indexes, sep_score = self.get_kept_indexes2(pos_inst_comps,neg_inst_comps, pos_inst.get_name().lower())
+        pos_indexes, max_dd = self.get_kept_indexes2(pos_inst_comps,neg_inst_comps, pos_inst.get_name().lower())
         
-        return pos_indexes, sep_score
+        return pos_indexes, max_dd
         
     def test_2_classes(self, inst1, inst2):
         
@@ -339,7 +339,7 @@ class ICA_inner_diverse_desnity():
         
         #self.comp_treshold = np.abs(np.std(dd_all))
         
-        max_dd = pos_all[np.argmax(dd_all)]
+        max_dd = np.max(dd_all)
         
         pos_bag, index1 = self.calc_kept_values(max_dd, pos_all)
         #bag2, index2 = self.calc_kept_values(sep2, bag2)

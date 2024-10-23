@@ -62,6 +62,7 @@
     <Compile Include="weak_labelling_classes\Metrics\Diverse_Density.py" />
     <Compile Include="weak_labelling_classes\Metrics\ICA_metrics.py" />
     <Compile Include="weak_labelling_classes\Metrics\__init__.py" />
+    <Compile Include="weak_labelling_classes\Tests\Single_file.py" />
     <Compile Include="weak_labelling_classes\Tests\Participant_test.py" />
     <Compile Include="weak_labelling_classes\Tests\Simulated_trainig.py" />
     <Compile Include="weak_labelling_classes\Tests\Dataset_test.py" />

@@ -6,7 +6,7 @@ from ..data_loaders.CSV_loader import CSV_loader
 from ..Filters.Butterworth import butterworth
 from ..embedding_models.SSFFT import ssfft
 from ..comparitors.Mean_bag_comparitor import Mean_bag
-from ..classifiers.SVM import SVM
+from ..classifiers.SVM import SVM 
 #from ..Graphing.Bag_scatter import Bag_scatter
 from ..embedding_models.PCA import Pca
 #from ..Graphing.Data_set_scatter import data_set_scatter
@@ -29,17 +29,17 @@ class participant_test(object):
     
     
         
-    def start_2(self, train_files, name:str, session:int):
+    def start_2(self, train_files: [str], name:str, session:int):
         
         self.instructions = self.load_file_data(train_files)
         self.instructions = self.instructions[1:]
         self.instructions.pop(1)
         
-        test = ICA_inner_diverse_desnity(session,name)
-        return test.test_2_classes(self.instructions[0],self.instructions[1])
+        #test = ICA_inner_diverse_desnity(session,name)
+        #return test.test_2_classes(self.instructions[0],self.instructions[1])
 
-        #test = ICA_inner_2(session,name)
-        #return test.test_2_classes_all(self.instructions[0],self.instructions[1])
+        test = ICA_inner_2(session,name)
+        return test.test_2_classes_all(self.instructions[0],self.instructions[1])
         
     def load_file_data(self, files):
         csvl = CSV_loader()

@@ -55,7 +55,7 @@ class csp_classifier(object):
         bf = Bag_filters()
         s = ssfft()
         for i in range(len(data)):
-            data[i] = s.fft_compress(bf.filter_bag(data[i]))
+            data[i] = bf.filter_bag(data[i])
             
         return data
     

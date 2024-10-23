@@ -44,7 +44,7 @@ class ICA_inner_2():
     graph = None
     
     comps = None
-    comp_treshold = 0.5
+    comp_treshold = 0.0
     
     def get_data_columns(self):
         return ['Method accuracy','Without method accuracy',
@@ -72,8 +72,8 @@ class ICA_inner_2():
     def test_2_classes_all(self, inst1, inst2):
         
         self.graph = ica_all_graphs().create_dir(self.name, self.session)
-        #comp_method = bci_tvr(self.graph)
-        comp_method = csp_classifier()
+        comp_method = bci_tvr(self.graph)
+        #comp_method = csp_classifier()
         
         bag1 = self.combine_bags(inst1.get_bags()).get_bag()
         bag2 = self.combine_bags(inst2.get_bags()).get_bag()
@@ -272,12 +272,13 @@ class ICA_inner_2():
         #bag1 = od.std_remover(bag1)
         #bag2 = od.std_remover(bag2)
 
-        pos_bag = od.Isolation_forrest(pos_bag)
-        neg_bag = od.Isolation_forrest(neg_bag)
+        #pos_bag = od.Isolation_forrest(pos_bag)
+        #neg_bag = od.Isolation_forrest(neg_bag)
         
         self.plot_2D_scatter([pos_bag, neg_bag], ['pos','neg'],means = False, name = pos_name)
         
         X, y = self.PCA_data([pos_bag,neg_bag])
+        X, y = od.Isolation_forrest_ndarr(X, y)
         #X,y = self.convert_to_ml_data([bag1,bag2])
         pos_bag, neg_bag = self.split_bag_2(X,y)
         
@@ -291,7 +292,7 @@ class ICA_inner_2():
         
         pos_bag, index1 = self.calc_kept_values(sep, pos_bag)
         #bag2, index2 = self.calc_kept_values(sep2, bag2)
-        self.plot_2D_scatter([pos_bag, neg_bag], ['pos','neg'],means = False, name = pos_name)
+        self.plot_2D_scatter([pos_bag, neg_bag], ['pos','neg'],means = False, name = f'{pos_name} after')
         sep_score = self.test_seperation([pos_bag,neg_bag])
         
         

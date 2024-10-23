@@ -106,7 +106,25 @@ class outlier_dection():
                 new_bag.append(bag[i])
                 
         return new_bag
-            
+    
+    def Isolation_forrest_ndarr(self, bag, y = None):
+        #b = np.stack(bag,axis = 0)
+        
+        anoms = IsolationForest().fit_predict(bag).tolist()
+        
+        new_bag = []
+        new_y = []
+        for i in range(len(anoms)):
+            if anoms[i] == 1:
+                new_bag.append(bag[i])
+                
+                if type(y).__name__ != 'NoneType':
+                    new_y.append(y[i])
+                    
+        if type(y).__name__ == 'NoneType':        
+            return np.stack(new_bag, axis = 0)
+        else:
+            return np.stack(new_bag, axis = 0), new_y
              
             
             

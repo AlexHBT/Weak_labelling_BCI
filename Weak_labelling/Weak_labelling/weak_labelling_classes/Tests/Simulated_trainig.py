@@ -4,6 +4,7 @@ import os
 from .Participant_test import participant_test
 import pandas as pd
 from ..comparitors.ICA_inner import ICA_inner_2
+from ..comparitors.ICA_inner_diverse_density import ICA_inner_diverse_desnity
 import math
 
 
@@ -29,7 +30,7 @@ class Simulated_Training():
                 participant_accuracies.append(
                     self.test_participant(participants[i],names[i]))
             
-                df = pd.DataFrame(participant_accuracies[-1], columns = ICA_inner_2('','').get_data_columns())
+                df = pd.DataFrame(participant_accuracies[-1], columns = ICA_inner_diverse_desnity('','').get_data_columns())
                 
                 df.to_csv(
                     os.path.join(os.path.abspath(output_dir), f'{names[i]}_accuracies.csv'))
@@ -64,7 +65,7 @@ class Simulated_Training():
         #for i in range(len(files)-1):
         for i in range(len(files)):
                 
-            #try:
+            try:
                 self.print_progress(i,len(files))
                 train_files = []
                 test_files = []
@@ -77,8 +78,8 @@ class Simulated_Training():
             
                 accuracies.append(pt.start_2(train_files,part_name, i+1))
                 
-            #except:
-                #print(f'\n ({i}/{len(files)}) Failed to get results')
+            except:
+                print(f'\n ({i}/{len(files)}) Failed to get results')
         self.print_progress(len(files),len(files))
         return accuracies
         
