@@ -11,7 +11,7 @@ from ..embedding_models.PCA import Pca
 from sklearn.svm import SVC
 from sklearn.preprocessing import normalize
 from sklearn.ensemble import IsolationForest
-
+from ..Filters import outlier
 
 import copy
 from ..Metrics.ICA_metrics import ica_metrics
@@ -74,11 +74,15 @@ class ICA_inner_2():
         self.graph = ica_all_graphs().create_dir(self.name, self.session)
         comp_method = bci_tvr(self.graph)
         #comp_method = csp_classifier()
+
+        
         
         bag1 = self.combine_bags(inst1.get_bags()).get_bag()
         bag2 = self.combine_bags(inst2.get_bags()).get_bag()
        
         orgin_acc = comp_method.process_and_classify([bag1, bag2])
+        
+        outlier
 
         self.plot_csp_patterns([bag1, bag2], 'standard')        
 
@@ -274,11 +278,16 @@ class ICA_inner_2():
 
         #pos_bag = od.Isolation_forrest(pos_bag)
         #neg_bag = od.Isolation_forrest(neg_bag)
+
+        new_data = od.post_PCA_selection([pos_bag, neg_bag])
+        
+        pos_bag = new_data[0]
+        neg_bag = new_data[1]
         
         self.plot_2D_scatter([pos_bag, neg_bag], ['pos','neg'],means = False, name = pos_name)
         
         X, y = self.PCA_data([pos_bag,neg_bag])
-        X, y = od.Isolation_forrest_ndarr(X, y)
+        #X, y = od.Isolation_forrest_ndarr(X, y)
         #X,y = self.convert_to_ml_data([bag1,bag2])
         pos_bag, neg_bag = self.split_bag_2(X,y)
         

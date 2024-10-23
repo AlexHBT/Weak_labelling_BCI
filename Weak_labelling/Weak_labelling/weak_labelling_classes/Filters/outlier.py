@@ -1,6 +1,9 @@
+from numpy.random import f
 import sklearn as sk
 import numpy as np
+import sklearn.decomposition
 from sklearn.ensemble import IsolationForest
+from ..embedding_models.PCA import Pca
 
 class outlier_dection():
     def __init__(self):
@@ -127,5 +130,29 @@ class outlier_dection():
             return np.stack(new_bag, axis = 0), new_y
              
             
-            
+    def post_PCA_selection(self, bags):
         
+        combined_bags = []
+        
+        for b in bags:
+            combined_bags.extend(b)
+        
+        X,y = Pca().PCA_bags(bags)
+        y = y.tolist()
+        anoms = IsolationForest().fit_predict(X).tolist()
+        
+        new_bags = []
+        
+        for i in range(int(max(y))+1):
+            new_bags.append([])
+            
+        for i in range(len(anoms)):
+            if anoms[i] == 1:
+                new_bags[int(y[i])].append(combined_bags[i])
+        
+        return new_bags
+        
+           
+        
+      
+     
