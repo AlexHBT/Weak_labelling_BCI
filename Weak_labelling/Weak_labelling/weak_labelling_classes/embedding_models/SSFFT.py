@@ -15,7 +15,7 @@ class ssfft(object):
         P1 = P2[:int(L/2)+1]
         P1[2:] = 2*P1[2:]
         x_freq = np.arange(int(L/2)+1)
-        return P1[1:], x_freq[1:]
+        return np.square(P1[1:]), x_freq[1:]
         
         
         
@@ -37,6 +37,38 @@ class ssfft(object):
             new_values.append(np.stack(temp, axis = 1))
         #print(new_values[0].shape)
         return new_values
+    
+    def log10(self,inst):
+        return 10 * np.log10(inst)
+    
+    def get_bands(self, inst, args):
+        sfft = self.ssfft(inst)[0]
+        
+        band_power = []
+
+        if 'theta' in args:
+            band_power.append(np.max(self.log10(sfft[3:7]), axis = 0))        
+
+        if 'alpha' in args:
+            band_power.append(np.max(self.log10(sfft[7:12]), axis = 0))
+            
+        if 'beta' in args:
+            band_power.append(np.max(self.log10(sfft[12:30]), axis = 0))
+          
+        
+            
+        return np.stack(band_power, axis = 0)
+
+      
+    def get_bands_bag(self, bag, *args):
+        
+        new_data = []
+        
+        for i in bag:
+            new_data.append(np.squeeze(self.get_bands(i,args)))
+           
+        return new_data
+        
     
     def fft_compress(self,bag):
         return self.compress_bag(self.fft_bag(bag))

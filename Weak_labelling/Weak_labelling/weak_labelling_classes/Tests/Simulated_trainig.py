@@ -30,10 +30,10 @@ class Simulated_Training():
                 participant_accuracies.append(
                     self.test_participant(participants[i],names[i]))
             
-                df = pd.DataFrame(participant_accuracies[-1], columns = ICA_inner_diverse_desnity('','').get_data_columns())
+                #df = pd.DataFrame(participant_accuracies[-1], columns = ICA_inner_diverse_desnity('','').get_data_columns())
                 
-                df.to_csv(
-                    os.path.join(os.path.abspath(output_dir), f'{names[i]}_accuracies.csv'))
+                #df.to_csv(
+                    #os.path.join(os.path.abspath(output_dir), f'{names[i]}_accuracies.csv'))
             
             
                 
@@ -78,8 +78,9 @@ class Simulated_Training():
             
                 accuracies.append(pt.start_2(train_files,part_name, i+1))
                 
-            except:
+            except Exception as e:
                 print(f'\n ({i}/{len(files)}) Failed to get results')
+                print(e)
         self.print_progress(len(files),len(files))
         return accuracies
         

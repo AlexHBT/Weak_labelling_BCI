@@ -1,6 +1,7 @@
 
 import os
 import graphlib
+from tkinter import SE
 import numpy as np
 import scipy as sci
 from ..bag_classes.bag import Bag
@@ -313,6 +314,8 @@ class ICA_inner_diverse_desnity():
         pos_inst = self.flatten_inst(self.fft_inst(pos_inst))
         neg_inst = self.flatten_inst(self.fft_inst(neg_inst))
         
+        self.save_embeddings([pos_inst,neg_inst])
+        
         self.bag_graph.plot_space(pos_inst, neg_inst, pos_name)
         
         od = outlier_dection()
@@ -513,4 +516,9 @@ class ICA_inner_diverse_desnity():
         return new_bags
         
 
-    
+    def save_embeddings(self,inst:[]):
+         file = 'D:/Weak_labelling ICA embeddings/'
+         X,y = self.convert_to_ml_data(inst)
+         data = np.concatenate(X,y, axis = 1)
+         np.save(f'{file}/{self.name}_{self.session}.npy')
+         

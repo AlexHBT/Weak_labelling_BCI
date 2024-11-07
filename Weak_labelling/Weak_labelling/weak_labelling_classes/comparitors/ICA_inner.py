@@ -46,6 +46,10 @@ class ICA_inner_2():
     comps = None
     comp_treshold = 0.0
     
+    n_comps = 4
+    
+    save_inst = None
+    
     def get_data_columns(self):
         return ['Method accuracy','Without method accuracy',
                 'seperation_score1','seperation_score2', 
@@ -59,6 +63,8 @@ class ICA_inner_2():
         self.name = name
         
         self.comps = []
+        
+        self.save_inst = 0
         
     def retrieve_indexes(self,pos_bag, neg_bag, pos_inst):
         
@@ -84,7 +90,7 @@ class ICA_inner_2():
         
         outlier
 
-        self.plot_csp_patterns([bag1, bag2], 'standard')        
+        #self.plot_csp_patterns([bag1, bag2], 'standard')        
 
         filt_bag1 = self.filter_bag(bag1)
         filt_bag2 = self.filter_bag(bag2)
@@ -201,7 +207,7 @@ class ICA_inner_2():
     
         return bag_1, bag_2
     
-    def get_components(self,example, instruction, n_comps = 3, is_pos = True):
+    def get_components(self,example, instruction, is_pos = True):
        
         sources, mix = self.ICA_data(example)
         Im = self.normalize_im(np.linalg.inv(mix).real)
@@ -221,7 +227,7 @@ class ICA_inner_2():
         #print(order_list[:3])
     
         max_indexes = []
-        for i in range(n_comps):
+        for i in range(self.n_comps):
             max_indexes.append(np.argmax(values))
             values.pop(max_indexes[-1])
 
@@ -229,8 +235,8 @@ class ICA_inner_2():
         #plot_comps(Im[:,max_indexes],instruction)
     
         comps = sources.real[:, max_indexes]
-        self.save_array(Im)
-        self.save_array_inst(Im[:,max_indexes], instruction)
+        #self.save_array(Im)
+        #self.save_array_inst(Im[:,max_indexes], instruction)
         if is_pos:
             self.comps[-1].extend(self.split_array(Im[:,max_indexes],axis = 1))
          
@@ -255,7 +261,10 @@ class ICA_inner_2():
     
     def fft_bag(self,bag):
         s = ssfft()
-        return s.fft_compress(bag)
+        #return s.fft_compress(bag)
+
+        bands_bags = s.get_bands_bag(bag, 'alpha', 'theta')
+        return bands_bags
     
     def stack_flatten(self, bag):
         return self.stack_data(self.flatten_data(bag))
@@ -271,6 +280,8 @@ class ICA_inner_2():
         
         pos_bag = self.flatten_data(self.fft_bag(pos_bag))
         neg_bag = self.flatten_data(self.fft_bag(neg_bag))
+        
+        self.save_embeddings([pos_bag,neg_bag])
         
         od = outlier_dection()
         #bag1 = od.std_remover(bag1)
@@ -406,6 +417,24 @@ class ICA_inner_2():
         return new_bag
             
     def plot_2D_scatter(self, bags, class_names ,means = False, name = ''):
-        X,y = self.PCA_data(bags,2)
+        X,y = self.PCA_data(copy.deepcopy(bags),2)
         pos_bag, neg_bag = self.split_bag_2(X,y)
         self.graph.plot_scatter([pos_bag,neg_bag], class_names, means = means, name = name)
+        
+
+    def save_embeddings(self,inst:[]):
+         self.save_inst += 1
+         file = 'D:/Weak_labelling ICA embeddings/'
+         X = []
+         y = []
+         for i in range(len(inst)):
+             y.append(np.zeros(len(inst[i]))+i)
+             X.append(np.stack(inst[i], axis = 0))
+             
+         X = np.concatenate(X, axis = 0)
+         y = np.concatenate(y, axis = 0)
+         data = np.concatenate((X,y[:,np.newaxis]), axis = 1)
+         np.save(f'{file}/{self.name}_{self.session.replace(" ","_")}_{self.save_inst}.npy', data)
+         #if self.save_inst>1:
+         raise Exception("Skipping classification")
+         
