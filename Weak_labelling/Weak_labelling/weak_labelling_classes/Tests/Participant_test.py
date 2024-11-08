@@ -19,6 +19,7 @@ from ..classifiers.MLP import Mlp
 
 from ..comparitors.ICA_inner import ICA_inner_2
 from ..comparitors.ICA_inner_diverse_density import ICA_inner_diverse_desnity
+from ..comparitors.All_CCA import all_cca
 
 
 class participant_test(object):
@@ -38,8 +39,11 @@ class participant_test(object):
         #test = ICA_inner_diverse_desnity(session,name)
         #return test.test_2_classes(self.instructions[0],self.instructions[1])
 
-        test = ICA_inner_2(session,name)
-        return test.test_2_classes_all(self.instructions[0],self.instructions[1])
+        #test = ICA_inner_2(session,name)
+        #return test.test_2_classes_all(self.instructions[0],self.instructions[1])
+
+        test = all_cca(session,name)
+        test.test_2_classes_all(self.instructions[0],self.instructions[1])
         
     def load_file_data(self, files):
         csvl = CSV_loader()
